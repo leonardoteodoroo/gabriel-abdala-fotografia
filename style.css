@@ -228,6 +228,7 @@ h2 {
 .ratio-3-4 { aspect-ratio: 3 / 4; }
 .ratio-1-1 { aspect-ratio: 1 / 1; }
 .ratio-16-9 { aspect-ratio: 16 / 9; }
+.ratio-4-3 { aspect-ratio: 4 / 3; }
 
 /* ==========================================================================
    1. HERO FULLSCREEN IMERSIVA
@@ -616,7 +617,7 @@ h2 {
 }
 
 /* ==========================================================================
-   6. CARROSSEL DE SERVIÇOS & COBERTURAS
+   6. CARROSSEL DE SERVIÇOS & COBERTURAS (RESPONSIVO COM SNAP SUAVE)
    ========================================================================== */
 
 .section-services {
@@ -663,7 +664,8 @@ h2 {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  padding: 1rem 0 2rem;
+  padding: 0.5rem 0 2rem;
+  scroll-snap-type: x mandatory;
 }
 
 .carousel-track-container::-webkit-scrollbar {
@@ -673,15 +675,21 @@ h2 {
 .carousel-track {
   display: flex;
   gap: 1.5rem;
+  width: max-content;
 }
 
 .service-card {
   flex: 0 0 320px;
+  width: 320px;
   background-color: #FFFFFF;
   padding: 1.25rem;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
   border: 1px solid var(--border-subtle);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   transition: var(--transition-smooth);
 }
 
@@ -723,6 +731,7 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  margin-top: auto;
 }
 
 .service-cta:hover {
@@ -1326,7 +1335,7 @@ h2 {
 }
 
 /* ==========================================================================
-   RESPONSIVIDADE (MOBILE-FIRST / BREAKPOINTS)
+   RESPONSIVIDADE (MOBILE-FIRST / BREAKPOINTS PERFEITOS)
    ========================================================================== */
 
 @media (max-width: 1024px) {
@@ -1363,22 +1372,137 @@ h2 {
 }
 
 @media (max-width: 768px) {
+  .hero-fullscreen {
+    padding: 5rem 0 4rem;
+  }
+  
   .lead-magnet-container {
     flex-direction: column;
     text-align: center;
     gap: 1.25rem;
   }
   
+  /* O Respiro no Mobile */
+  .section-respiro {
+    padding: 4.5rem 0;
+  }
+  
+  .overlap-container-3 {
+    min-height: 380px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .overlap-photo-main {
+    width: 76%;
+  }
+  
+  .overlap-photo-accent {
+    width: 56%;
+    top: 14%;
+  }
+  
+  .overlap-photo-badge {
+    width: 44%;
+    bottom: -2%;
+    left: 14%;
+  }
+  
+  /* Galeria Narrativa no Mobile */
+  .section-gallery {
+    padding: 4.5rem 0;
+  }
+  
+  .story-acts-container {
+    gap: 3.5rem;
+  }
+  
+  .act-media-grid-overlap {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  /* Seção Sobre no Mobile */
+  .section-about {
+    padding: 4.5rem 0;
+  }
+  
   .bio-cards-grid {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  /* Carrossel de Serviços no Mobile (Sem Cortes, Snap Perfeito & Proporção Equilibrada) */
+  .section-services {
+    padding: 4.5rem 0 3.5rem;
+  }
+  
+  .services-header-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+  }
+  
+  .carousel-track-container {
+    padding: 0.5rem 1.5rem 1.5rem;
+    margin: 0 -1.5rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-track {
+    gap: 1rem;
+  }
+  
+  .service-card {
+    flex: 0 0 82vw;
+    width: 82vw;
+    max-width: 320px;
+    scroll-snap-align: start;
+    padding: 1.15rem;
+  }
+  
+  .service-card .editorial-img-wrapper {
+    aspect-ratio: 4 / 3;
+    max-height: 250px;
+    border-radius: var(--radius-sm);
+    border-width: 3px;
+  }
+  
+  .service-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.35rem;
+  }
+  
+  .service-desc {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  
+  /* Experiência & Depoimentos no Mobile */
+  .section-experience, .section-testimonials, .section-faq, .section-cta-final {
+    padding: 4.5rem 0;
   }
   
   .experience-grid, .testimonials-grid {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .press-logos {
+    gap: 0.6rem 0.9rem;
+  }
+  
+  .press-item {
+    font-size: 0.72rem;
   }
   
   .feed-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 3.5rem;
   }
   
   .palette-grid {
@@ -1403,7 +1527,7 @@ h2 {
   }
   
   .sticky-action-btn {
-    padding: 0.9rem;
+    padding: 0.85rem;
     bottom: 1.25rem;
     right: 1.25rem;
   }

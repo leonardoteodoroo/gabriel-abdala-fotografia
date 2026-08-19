@@ -781,11 +781,13 @@
 
       if (btnPrev && btnNext && trackContainer) {
         btnPrev.addEventListener('click', () => {
-          const scrollAmount = window.innerWidth <= 768 ? window.innerWidth * 0.8 : 340;
+          const card = trackContainer.querySelector('.service-card');
+          const scrollAmount = card ? card.offsetWidth + 16 : 320;
           trackContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         });
         btnNext.addEventListener('click', () => {
-          const scrollAmount = window.innerWidth <= 768 ? window.innerWidth * 0.8 : 340;
+          const card = trackContainer.querySelector('.service-card');
+          const scrollAmount = card ? card.offsetWidth + 16 : 320;
           trackContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
         });
       }
