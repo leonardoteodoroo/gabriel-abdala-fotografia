@@ -5,14 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gabriel Abdala | Fotografia de Casamento com Alma & Verdade</title>
   <meta name="description" content="Fotografia de casamento documental e afetiva em Goiânia e todo o Brasil. Sem poses forçadas, capture a emoção real do seu grande dia.">
+  <meta name="theme-color" content="#F8F6F0">
+  
+  <!-- Open Graph / Redes Sociais -->
+  <meta property="og:title" content="Gabriel Abdala | Fotografia de Casamento com Alma & Verdade">
+  <meta property="og:description" content="Fotografia de casamento documental e afetiva. Sem poses engessadas, capture a verdade e a espontaneidade do seu amor.">
+  <meta property="og:image" content="assets/images/hero-casamento.webp">
+  <meta property="og:type" content="website">
+
+  <!-- Preload do LCP para Performance Máxima -->
   <link rel="preload" as="image" href="assets/images/hero-casamento.webp" fetchpriority="high">
+  
+  <!-- Google Fonts: Cormorant Garamond (Serif Editorial) + Plus Jakarta Sans (Sans-serif Elegante) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
   <main>
     <!-- =========================================================================
-         1. HERO FULLSCREEN SEM BORDAS E SEM MENU (100% IMERSIVA)
+         1. HERO FULLSCREEN IMERSIVA (EDITORIAL & CINEMATOGRÁFICA)
          ========================================================================= -->
     <section class="hero-fullscreen" id="heroSection">
       <div class="hero-bg-layer" id="heroBgSlideshow"></div>
@@ -31,9 +46,9 @@
             <a href="https://wa.me/5562993258802?text=Ol%C3%A1%20Gabriel!%20Gostaria%20de%20saber%20se%20a%20minha%20data%20de%20casamento%20est%C3%A1%20dispon%C3%ADvel." target="_blank" rel="noopener noreferrer" class="btn btn-primary" id="heroCtaBtn">
               Verificar Minha Data no WhatsApp &rarr;
             </a>
-            <span class="micro-guarantee" style="color: rgba(255, 255, 255, 0.85);">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A3BE8C" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Agenda exclusiva com limite rigoroso de casamentos por mês.
+            <span class="micro-guarantee">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Agenda exclusiva com limite de casamentos por mês.
             </span>
           </div>
 
@@ -47,25 +62,45 @@
     </section>
 
     <!-- =========================================================================
-         2. O RESPIRO & FOTOS REAIS SOBREPOSTAS (COMPOSIÇÃO TRIPLA)
+         2. FAIXA DE ISCA DIGITAL & CAPTURA DE NOIVAS (LEAD MAGNET ELEGANTE)
+         ========================================================================= -->
+    <section class="section-lead-magnet" id="guiaNoivas">
+      <div class="container lead-magnet-container">
+        <div class="lead-magnet-text">
+          <span class="lead-badge">🎁 Presente para Noivas</span>
+          <h2 class="lead-title">Guia de Planejamento do Casamento & Cronograma de Luz Natural</h2>
+          <p class="lead-desc">
+            Aprenda a alinhar o horário da sua cerimônia com o pôr do sol para garantir fotos cinematográficas e sem correria.
+          </p>
+        </div>
+        <div class="lead-magnet-action">
+          <a href="https://wa.me/5562993258802?text=Ol%C3%A1%20Gabriel!%20Gostaria%20de%20receber%20gratuitamente%20o%20Guia%20de%20Planejamento%20do%20Casamento." target="_blank" rel="noopener noreferrer" class="btn btn-magnet">
+            Baixar Guia Gratuito no WhatsApp &rarr;
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. O RESPIRO & FOTOS SOBREPOSTAS EM CAMADAS (LAYERED FRAMES)
          ========================================================================= -->
     <section class="section-respiro" id="filosofia">
       <div class="container respiro-grid">
-        <!-- Composição Tripla com Imagens Reais -->
+        <!-- Composição Tripla com Molduras Táteis de Álbum de Luxo -->
         <div class="overlap-container-3">
           <!-- Foto 1: Vertical 4:5 -->
           <div class="editorial-img-wrapper ratio-4-5 overlap-photo-main editorial-frame" data-src="assets/images/respiro-casal-sorrindo.webp" data-title="Sorriso Cúmplice a Dois" data-tag="4:5 Retrato Editorial" data-desc="O noivo rindo de verdade com a noiva sem nenhuma pose forçada.">
-            <img src="assets/images/respiro-casal-sorrindo.webp" alt="Casal de noivos rindo com cumplicidade sem poses forçadas" class="editorial-img">
+            <img src="assets/images/respiro-casal-sorrindo.webp" alt="Casal de noivos rindo com cumplicidade sem poses forçadas" class="editorial-img" loading="lazy">
           </div>
           
           <!-- Foto 2: 3:4 Sobreposta -->
           <div class="editorial-img-wrapper ratio-3-4 overlap-photo-accent editorial-frame" data-src="assets/images/respiro-abraco.webp" data-title="O Abraço Espontâneo" data-tag="3:4 Espontâneo" data-desc="Luz natural filtrada realçando a textura do vestido e o abraço apertado.">
-            <img src="assets/images/respiro-abraco.webp" alt="Abraço espontâneo com luz natural" class="editorial-img">
+            <img src="assets/images/respiro-abraco.webp" alt="Abraço espontâneo com luz natural" class="editorial-img" loading="lazy">
           </div>
 
           <!-- Foto 3: 1:1 Quadrada Sobreposta -->
           <div class="editorial-img-wrapper ratio-1-1 overlap-photo-badge editorial-frame" data-src="assets/images/respiro-maos-aliancas.webp" data-title="Toque de Mãos & Alianças" data-tag="1:1 Detalhe Afetivo" data-desc="O gesto íntimo de mãos entrelaçadas durante os votos.">
-            <img src="assets/images/respiro-maos-aliancas.webp" alt="Mãos entrelaçadas com alianças de casamento" class="editorial-img">
+            <img src="assets/images/respiro-maos-aliancas.webp" alt="Mãos entrelaçadas com alianças de casamento" class="editorial-img" loading="lazy">
           </div>
         </div>
 
@@ -86,7 +121,7 @@
     </section>
 
     <!-- =========================================================================
-         3. A GALERIA NARRATIVA (STORY ARC EM 4 ATOS COM FOTOS REAIS)
+         4. A GALERIA NARRATIVA (STORY ARC EM 4 ATOS COM FOTOS REAIS)
          ========================================================================= -->
     <section class="section-gallery" id="galeria">
       <div class="container">
@@ -108,10 +143,10 @@
             </div>
             <div class="act-media-grid-overlap">
               <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/ato1-vestido-makingof.webp" data-title="O Vestido & A Noiva" data-tag="Ato 01 &bull; 4:5 Vertical" data-desc="A noiva se admirando no espelho com o vestido pronto e olhar sereno.">
-                <img src="assets/images/ato1-vestido-makingof.webp" alt="Noiva se admirando no espelho durante o making of" class="editorial-img">
+                <img src="assets/images/ato1-vestido-makingof.webp" alt="Noiva se admirando no espelho durante o making of" class="editorial-img" loading="lazy">
               </div>
               <div class="editorial-img-wrapper ratio-1-1 editorial-frame" data-src="assets/images/ato1-joia-perfume.webp" data-title="A Joia & O Perfume" data-tag="Ato 01 &bull; 1:1 Detalhe" data-desc="As alianças, o perfume e os pequenos detalhes planejados por meses.">
-                <img src="assets/images/ato1-joia-perfume.webp" alt="Detalhes de joias, sapatos e perfume da noiva" class="editorial-img">
+                <img src="assets/images/ato1-joia-perfume.webp" alt="Detalhes de joias, sapatos e perfume da noiva" class="editorial-img" loading="lazy">
               </div>
             </div>
           </div>
@@ -125,10 +160,10 @@
             </div>
             <div class="act-media-grid-overlap">
               <div class="editorial-img-wrapper ratio-16-9 editorial-frame" data-src="assets/images/ato2-entrada-igreja.webp" data-title="A Entrada Triunfal" data-tag="Ato 02 &bull; 16:9 Amplo" data-desc="Visão panorâmica da noiva entrando na nave com o pai e todos os olhares vidrados.">
-                <img src="assets/images/ato2-entrada-igreja.webp" alt="Entrada emocionante da noiva na igreja com o pai" class="editorial-img">
+                <img src="assets/images/ato2-entrada-igreja.webp" alt="Entrada emocionante da noiva na igreja com o pai" class="editorial-img" loading="lazy">
               </div>
               <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/ato2-noivo-lagrima.webp" data-title="O Olhar do Noivo e a Lágrima" data-tag="Ato 02 &bull; 4:5 Vertical" data-desc="Close-up emocionante do noivo enxugando a lágrima ao ver a noiva chegar.">
-                <img src="assets/images/ato2-noivo-lagrima.webp" alt="Noivo emocionado enxugando lágrima no altar" class="editorial-img">
+                <img src="assets/images/ato2-noivo-lagrima.webp" alt="Noivo emocionado enxugando lágrima no altar" class="editorial-img" loading="lazy">
               </div>
             </div>
           </div>
@@ -142,10 +177,10 @@
             </div>
             <div class="act-media-grid-overlap">
               <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/ato3-abraco-goldenhour.webp" data-title="O Abraço na Golden Hour" data-tag="Ato 03 &bull; 4:5 Luz Dourada" data-desc="Luz dourada mágica, abraço apertado e o vento movimentando o véu.">
-                <img src="assets/images/ato3-abraco-goldenhour.webp" alt="Casal de noivos abraçados na luz dourada do pôr do sol" class="editorial-img">
+                <img src="assets/images/ato3-abraco-goldenhour.webp" alt="Casal de noivos abraçados na luz dourada do pôr do sol" class="editorial-img" loading="lazy">
               </div>
               <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/ato3-caminhada-casal.webp" data-title="Caminhada a Dois" data-tag="Ato 03 &bull; 4:5 Movimento" data-desc="Caminhando de mãos dadas rindo, com movimento natural e fluido.">
-                <img src="assets/images/ato3-caminhada-casal.webp" alt="Casal caminhando de mãos dadas com sorrisos sinceros" class="editorial-img">
+                <img src="assets/images/ato3-caminhada-casal.webp" alt="Casal caminhando de mãos dadas com sorrisos sinceros" class="editorial-img" loading="lazy">
               </div>
             </div>
           </div>
@@ -159,10 +194,10 @@
             </div>
             <div class="act-media-grid-overlap">
               <div class="editorial-img-wrapper ratio-16-9 editorial-frame" data-src="assets/images/ato4-pista-festa.webp" data-title="A Pista Fervendo" data-tag="Ato 04 &bull; 16:9 Dinâmico" data-desc="A pista de dança cheia, luzes dinâmicas e o casal com os amigos.">
-                <img src="assets/images/ato4-pista-festa.webp" alt="Pista de dança cheia de energia e alegria na festa de casamento" class="editorial-img">
+                <img src="assets/images/ato4-pista-festa.webp" alt="Pista de dança cheia de energia e alegria na festa de casamento" class="editorial-img" loading="lazy">
               </div>
               <div class="editorial-img-wrapper ratio-1-1 editorial-frame" data-src="assets/images/ato4-brinde-festa.webp" data-title="O Brinde com os Amigos" data-tag="Ato 04 &bull; 1:1 Espontâneo" data-desc="Gargalhada real no meio do brinde com os padrinhos.">
-                <img src="assets/images/ato4-brinde-festa.webp" alt="Brinde animado dos noivos e convidados" class="editorial-img">
+                <img src="assets/images/ato4-brinde-festa.webp" alt="Brinde animado dos noivos e convidados" class="editorial-img" loading="lazy">
               </div>
             </div>
           </div>
@@ -171,12 +206,14 @@
     </section>
 
     <!-- =========================================================================
-         4. SOBRE O GABRIEL ABDALA (FOTO REAL)
+         5. SOBRE O GABRIEL ABDALA + BIO INTERATIVA "POR TRÁS DAS LENTES"
          ========================================================================= -->
     <section class="section-about" id="sobre">
       <div class="container about-grid">
         <div class="about-photo-wrapper">
-          <img src="assets/images/perfil-fotografo-gabriel.webp" alt="Gabriel Abdala - Fotógrafo de Casamento" class="about-real-img" data-src="assets/images/perfil-fotografo-gabriel.webp" data-title="Gabriel Abdala &bull; O Fotógrafo" data-tag="Por Trás das Lentes" data-desc="Gabriel com sua câmera Canon e olhar focado em capturar momentos autênticos.">
+          <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/perfil-fotografo-gabriel.webp" data-title="Gabriel Abdala &bull; O Fotógrafo" data-tag="Por Trás das Lentes" data-desc="Gabriel com sua câmera e olhar focado em capturar momentos autênticos.">
+            <img src="assets/images/perfil-fotografo-gabriel.webp" alt="Gabriel Abdala - Fotógrafo de Casamento" class="about-real-img" loading="lazy">
+          </div>
           <span class="about-tag">Gabriel Abdala &bull; Fotógrafo</span>
         </div>
 
@@ -190,11 +227,41 @@
             <p>
               No dia do seu casamento, meu papel não é apenas apertar um botão técnico: é ser aquela <span class="about-highlight">presença serena e discreta</span> que te lembra de respirar quando o coração acelerar, que garante que seu noivo esteja à vontade e que cuida das suas memórias com a mesma reverência com que cuidaria da minha própria família.
             </p>
-            <p>
-              Você não precisa saber como posar. Você só precisa viver o dia mais feliz da sua vida — eu cuido do resto.
-            </p>
           </div>
-          <div style="margin-top: 1.75rem;">
+
+          <!-- Badges Interativos "Por Trás das Lentes" (Estilo Elle Danielle) -->
+          <div class="bio-cards-grid">
+            <div class="bio-card">
+              <span class="bio-icon">📸</span>
+              <div class="bio-info">
+                <span class="bio-label">Meu Estilo em 3 Palavras</span>
+                <p class="bio-val">Espontâneo, Íntimo & Atemporal</p>
+              </div>
+            </div>
+            <div class="bio-card">
+              <span class="bio-icon">☕</span>
+              <div class="bio-info">
+                <span class="bio-label">O que me Move</span>
+                <p class="bio-val">Café fresco e conversas de verdade</p>
+              </div>
+            </div>
+            <div class="bio-card">
+              <span class="bio-icon">🌿</span>
+              <div class="bio-info">
+                <span class="bio-label">Minha Maior Obsessão</span>
+                <p class="bio-val">Registrar os abraços que ninguém viu</p>
+              </div>
+            </div>
+            <div class="bio-card">
+              <span class="bio-icon">🛡️</span>
+              <div class="bio-info">
+                <span class="bio-label">Compromisso de Alma</span>
+                <p class="bio-val">1 casamento por dia, 100% de presença</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 2rem;">
             <a href="https://wa.me/5562993258802?text=Ol%C3%A1%20Gabriel!%20Vi%20seu%20site%20e%20gostaria%20de%20bater%20um%20papo." target="_blank" rel="noopener noreferrer" class="btn btn-outline">
               Bater um Papo com o Gabriel &rarr;
             </a>
@@ -204,7 +271,7 @@
     </section>
 
     <!-- =========================================================================
-         5. CARROSSEL DE SERVIÇOS PRESTADOS (COM PEEK PREVIEW DE 22%)
+         6. CARROSSEL DE SERVIÇOS & COBERTURAS
          ========================================================================= -->
     <section class="section-services" id="servicos">
       <div class="container">
@@ -213,7 +280,7 @@
             <span class="eyebrow">Além dos Casamentos</span>
             <h2>Nossas Coberturas & Ensaios</h2>
             <p class="lead-text" style="max-width: 540px;">
-              Arraste para o lado e conheça as outras histórias que contamos com a mesma sensibilidade.
+              Arraste para o lado e conheça as outras histórias que contamos com a mesma sensibilidade e olhar autoral.
             </p>
           </div>
 
@@ -233,8 +300,8 @@
             <!-- CARD 1: CASAMENTO -->
             <div class="service-card">
               <div class="service-img-holder">
-                <div class="editorial-img-wrapper ratio-4-5" data-src="assets/images/servico-casamento.webp" data-title="Casamentos & Elopement" data-tag="Core &bull; Casamentos" data-desc="Cobertura completa do making of à festa com galeria tratada em alta resolução.">
-                  <img src="assets/images/servico-casamento.webp" alt="Casamentos e Mini Weddings" class="editorial-img">
+                <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/servico-casamento.webp" data-title="Casamentos & Elopement" data-tag="Core &bull; Casamentos" data-desc="Cobertura completa do making of à festa com galeria tratada em alta resolução.">
+                  <img src="assets/images/servico-casamento.webp" alt="Casamentos e Mini Weddings" class="editorial-img" loading="lazy">
                 </div>
               </div>
               <span class="service-tag">O Grande Dia</span>
@@ -248,8 +315,8 @@
             <!-- CARD 2: PRÉ-WEDDING -->
             <div class="service-card">
               <div class="service-img-holder">
-                <div class="editorial-img-wrapper ratio-4-5" data-src="assets/images/servico-prewedding.webp" data-title="Ensaio Pré-Wedding" data-tag="Casais" data-desc="Tarde ao ar livre para vocês se conectarem e perderem o medo da câmera.">
-                  <img src="assets/images/servico-prewedding.webp" alt="Ensaios Pré-Wedding" class="editorial-img">
+                <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/servico-prewedding.webp" data-title="Ensaio Pré-Wedding" data-tag="Casais" data-desc="Tarde ao ar livre para vocês se conectarem e perderem o medo da câmera.">
+                  <img src="assets/images/servico-prewedding.webp" alt="Ensaios Pré-Wedding" class="editorial-img" loading="lazy">
                 </div>
               </div>
               <span class="service-tag">Conexão a Dois</span>
@@ -263,8 +330,8 @@
             <!-- CARD 3: GESTANTE & FAMÍLIA -->
             <div class="service-card">
               <div class="service-img-holder">
-                <div class="editorial-img-wrapper ratio-4-5" data-src="assets/images/servico-gestante.webp" data-title="Ensaio Gestante & Família" data-tag="Família" data-desc="A doce espera e o amor da família em fotos poéticas e atemporais.">
-                  <img src="assets/images/servico-gestante.webp" alt="Ensaio Gestante e Família" class="editorial-img">
+                <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/servico-gestante.webp" data-title="Ensaio Gestante & Família" data-tag="Família" data-desc="A doce espera e o amor da família em fotos poéticas e atemporais.">
+                  <img src="assets/images/servico-gestante.webp" alt="Ensaio Gestante e Família" class="editorial-img" loading="lazy">
                 </div>
               </div>
               <span class="service-tag">A Doce Espera</span>
@@ -278,8 +345,8 @@
             <!-- CARD 4: ESTÚDIO -->
             <div class="service-card">
               <div class="service-img-holder">
-                <div class="editorial-img-wrapper ratio-4-5" data-src="assets/images/servico-estudio.webp" data-title="Sessões em Estúdio" data-tag="Estúdio" data-desc="Iluminação controlada, elegância editorial e retratos com presença de marca.">
-                  <img src="assets/images/servico-estudio.webp" alt="Sessão em Estúdio e Retratos" class="editorial-img">
+                <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/servico-estudio.webp" data-title="Sessões em Estúdio" data-tag="Estúdio" data-desc="Iluminação controlada, elegância editorial e retratos com presença de marca.">
+                  <img src="assets/images/servico-estudio.webp" alt="Sessão em Estúdio e Retratos" class="editorial-img" loading="lazy">
                 </div>
               </div>
               <span class="service-tag">Elegância & Luz</span>
@@ -293,8 +360,8 @@
             <!-- CARD 5: ANIVERSÁRIO -->
             <div class="service-card">
               <div class="service-img-holder">
-                <div class="editorial-img-wrapper ratio-4-5" data-src="assets/images/servico-aniversario.webp" data-title="Aniversários & 15 Anos" data-tag="Celebrações" data-desc="A energia de celebrar mais um ano de vida rodeado de quem importa.">
-                  <img src="assets/images/servico-aniversario.webp" alt="Aniversários e 15 Anos" class="editorial-img">
+                <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/servico-aniversario.webp" data-title="Aniversários & 15 Anos" data-tag="Celebrações" data-desc="A energia de celebrar mais um ano de vida rodeado de quem importa.">
+                  <img src="assets/images/servico-aniversario.webp" alt="Aniversários e 15 Anos" class="editorial-img" loading="lazy">
                 </div>
               </div>
               <span class="service-tag">Celebrações</span>
@@ -308,8 +375,8 @@
             <!-- CARD 6: EVENTOS ESPECIAIS -->
             <div class="service-card">
               <div class="service-img-holder">
-                <div class="editorial-img-wrapper ratio-4-5" data-src="assets/images/servico-eventos.webp" data-title="Eventos Sociais Exclusivos" data-tag="Eventos" data-desc="Cobertura discreta para jantares, formaturas e eventos corporativos de alto nível.">
-                  <img src="assets/images/servico-eventos.webp" alt="Eventos Sociais e Corporativos" class="editorial-img">
+                <div class="editorial-img-wrapper ratio-4-5 editorial-frame" data-src="assets/images/servico-eventos.webp" data-title="Eventos Sociais Exclusivos" data-tag="Eventos" data-desc="Cobertura discreta para jantares, formaturas e eventos corporativos de alto nível.">
+                  <img src="assets/images/servico-eventos.webp" alt="Eventos Sociais e Corporativos" class="editorial-img" loading="lazy">
                 </div>
               </div>
               <span class="service-tag">Social & Corporativo</span>
@@ -326,21 +393,21 @@
     </section>
 
     <!-- =========================================================================
-         6. A EXPERIÊNCIA EM 3 CARDS
+         7. A EXPERIÊNCIA EM 3 PASSOS (TRANQUILIDADE ABSOLUTA)
          ========================================================================= -->
     <section class="section-experience" id="experiencia">
       <div class="container">
-        <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+        <div style="text-align: center; max-width: 620px; margin: 0 auto 3rem;">
           <span class="eyebrow">Sem Burocracia &bull; Paz Total</span>
-          <h2>Como cuidamos de vocês do início ao fim</h2>
+          <h2>Como cuidamos de vocês do primeiro contato à entrega do álbum</h2>
         </div>
 
         <div class="experience-grid">
-          <!-- CARD 1 -->
+          <!-- PASSO 1 -->
           <div class="experience-card">
             <div class="card-img-holder">
               <div class="editorial-img-wrapper ratio-3-4 editorial-frame" data-src="assets/images/experiencia-passo1.webp" data-title="O Ensaio Prévio" data-tag="Passo 01" data-desc="Alinhamento e pré-wedding descontraído para perder a timidez.">
-                <img src="assets/images/experiencia-passo1.webp" alt="Ensaio prévio com conexão" class="editorial-img">
+                <img src="assets/images/experiencia-passo1.webp" alt="Ensaio prévio com conexão" class="editorial-img" loading="lazy">
               </div>
             </div>
             <span class="step-label">01. Conexão</span>
@@ -348,11 +415,11 @@
             <p class="card-desc">Alinhamos o cronograma da luz e fazemos um ensaio leve para vocês perderem qualquer vergonha da câmera.</p>
           </div>
 
-          <!-- CARD 2 -->
+          <!-- PASSO 2 -->
           <div class="experience-card">
             <div class="card-img-holder">
               <div class="editorial-img-wrapper ratio-3-4 editorial-frame" data-src="assets/images/experiencia-passo2.webp" data-title="Segurança no Grande Dia" data-tag="Passo 02" data-desc="Equipamento redundante com backup duplo simultâneo.">
-                <img src="assets/images/experiencia-passo2.webp" alt="Segurança com equipamento redundante" class="editorial-img">
+                <img src="assets/images/experiencia-passo2.webp" alt="Segurança com equipamento redundante" class="editorial-img" loading="lazy">
               </div>
             </div>
             <span class="step-label">02. Blindagem</span>
@@ -360,11 +427,11 @@
             <p class="card-desc">Câmeras com gravação dupla simultânea. Zero risco de perda de arquivos e 100% de presença atenta.</p>
           </div>
 
-          <!-- CARD 3 -->
+          <!-- PASSO 3 -->
           <div class="experience-card">
             <div class="card-img-holder">
               <div class="editorial-img-wrapper ratio-3-4 editorial-frame" data-src="assets/images/experiencia-passo3.webp" data-title="A Galeria Viva" data-tag="Passo 03" data-desc="Prévia rápida de fotos no celular em 48 horas.">
-                <img src="assets/images/experiencia-passo3.webp" alt="Prévia de fotos no celular" class="editorial-img">
+                <img src="assets/images/experiencia-passo3.webp" alt="Prévia de fotos no celular" class="editorial-img" loading="lazy">
               </div>
             </div>
             <span class="step-label">03. O Presente</span>
@@ -376,11 +443,85 @@
     </section>
 
     <!-- =========================================================================
-         7. CONVERSA FRANCA / FAQ QUEBRA DE MEDOS
+         8. PROVA SOCIAL & DEPOIMENTOS DE NOIVAS ("LOVE NOTES" & IMPRENSA)
+         ========================================================================= -->
+    <section class="section-testimonials" id="depoimentos">
+      <div class="container">
+        <div class="testimonials-header">
+          <span class="eyebrow">Amor em Palavras &bull; Love Notes</span>
+          <div class="editorial-quote-headline">
+            “O Gabriel tem o dom raro de fazer a gente esquecer que existe uma câmera e viver a verdade de cada segundo.”
+          </div>
+        </div>
+
+        <div class="testimonials-grid">
+          <!-- CARD 1 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text">
+              “Nós tínhamos muito pavor de fotos engessadas. O Gabriel nos deixou tão tranquilos que nós rimos o casamento inteiro. Quando a galeria chegou, choramos de emoção!”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4 class="author-name">Mariana & Rodrigo</h4>
+                <span class="author-meta">Casamento na Fazenda &bull; Goiânia, GO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="testimonial-card featured-testimonial">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text">
+              “A prévia em 48 horas foi o maior presente que poderíamos ter recebido na lua de mel! Todos os nossos convidados elogiaram a discrição e a leveza da equipe.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4 class="author-name">Beatriz & Lucas</h4>
+                <span class="author-meta">Cerimônia ao Pôr do Sol &bull; Pirenópolis, GO</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="testimonial-card">
+            <div class="testimonial-quote-mark">&ldquo;</div>
+            <p class="testimonial-text">
+              “Ele capturou o abraço do meu avô e a lágrima do meu pai que ninguém mais tinha visto. Essas fotos hoje não têm preço para a nossa família.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-info">
+                <h4 class="author-name">Camila & Thiago</h4>
+                <span class="author-meta">Mini Wedding &bull; Brasília, DF</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Barra Monocromática de Reconhecimento & Setor de Casamentos -->
+        <div class="press-bar">
+          <span class="press-label">Reconhecimento & Referência no Mercado de Casamentos:</span>
+          <div class="press-logos">
+            <span class="press-item">INESQUECÍVEL CASAMENTO</span>
+            <span class="press-dot">&bull;</span>
+            <span class="press-item">ZANKYOU WEDDINGS</span>
+            <span class="press-dot">&bull;</span>
+            <span class="press-item">CONSTANCE ZAHN</span>
+            <span class="press-dot">&bull;</span>
+            <span class="press-item">LÁPIS DE NOIVA</span>
+            <span class="press-dot">&bull;</span>
+            <span class="press-item">FEARLESS PHOTOGRAPHERS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. CONVERSA FRANCA / FAQ QUEBRA DE MEDOS
          ========================================================================= -->
     <section class="section-faq" id="duvidas">
       <div class="container-narrow">
-        <div style="text-align: center;">
+        <div style="text-align: center; margin-bottom: 2.5rem;">
           <span class="eyebrow">Sem Segredos &bull; Conversa Aberta</span>
           <h2>Perguntas que toda noiva tem na ponta da língua</h2>
         </div>
@@ -430,7 +571,7 @@
     </section>
 
     <!-- =========================================================================
-         8. CTA FINAL
+         10. CTA FINAL DE CONVERSÃO
          ========================================================================= -->
     <section class="section-cta-final">
       <div class="container-narrow">
@@ -448,7 +589,7 @@
     </section>
 
     <!-- =========================================================================
-         9. PALETA CROMÁTICA & DESIGN TOKENS (AMOSTRAS 1:1)
+         11. PALETA CROMÁTICA & DESIGN TOKENS (AMOSTRAS 1:1)
          ========================================================================= -->
     <section class="section-palette-tokens" id="paletaCromatica">
       <div class="container">
@@ -537,41 +678,64 @@
     </section>
 
     <!-- =========================================================================
-         10. FEED DE DETALHES & RODAPÉ COM FOTOS REAIS
+         12. FEED DE DETALHES & MEGA RODAPÉ INSTITUCIONAL
          ========================================================================= -->
     <section class="section-footer-feed">
       <div class="container">
         <p class="feed-title">Siga a rotina no Instagram &bull; @Abdalafotografia</p>
         <div class="feed-grid">
           <div class="editorial-img-wrapper ratio-1-1 editorial-frame" data-src="assets/images/feed-buque.webp" data-title="O Buquê da Noiva" data-tag="Feed &bull; Detalhes" data-desc="Flores naturais e textura artesanal do arranjo.">
-            <img src="assets/images/feed-buque.webp" alt="Buquê da noiva" class="editorial-img">
+            <img src="assets/images/feed-buque.webp" alt="Buquê da noiva" class="editorial-img" loading="lazy">
           </div>
           <div class="editorial-img-wrapper ratio-1-1 editorial-frame" data-src="assets/images/feed-olhar.webp" data-title="O Olhar Secreto" data-tag="Feed &bull; Olhares" data-desc="Olhar trocado no altar no meio da cerimônia.">
-            <img src="assets/images/feed-olhar.webp" alt="Olhar de cumplicidade dos noivos" class="editorial-img">
+            <img src="assets/images/feed-olhar.webp" alt="Olhar de cumplicidade dos noivos" class="editorial-img" loading="lazy">
           </div>
           <div class="editorial-img-wrapper ratio-1-1 editorial-frame" data-src="assets/images/feed-alianca.webp" data-title="A Aliança de Ouro" data-tag="Feed &bull; Símbolos" data-desc="Macro delicada da troca de votos.">
-            <img src="assets/images/feed-alianca.webp" alt="Aliança de ouro em detalhe" class="editorial-img">
+            <img src="assets/images/feed-alianca.webp" alt="Aliança de ouro em detalhe" class="editorial-img" loading="lazy">
           </div>
           <div class="editorial-img-wrapper ratio-1-1 editorial-frame" data-src="assets/images/feed-brinde.webp" data-title="O Brinde dos Noivos" data-tag="Feed &bull; Festa" data-desc="Taças no ar e alegria pura.">
-            <img src="assets/images/feed-brinde.webp" alt="Brinde com taças de champanhe" class="editorial-img">
+            <img src="assets/images/feed-brinde.webp" alt="Brinde com taças de champanhe" class="editorial-img" loading="lazy">
           </div>
         </div>
 
         <footer class="site-footer">
-          <p class="footer-brand">Gabriel Abdala</p>
-          <div class="footer-contacts">
-            <span>WhatsApp: +55 (62) 99325-8802</span>
-            <span>Instagram: @Abdalafotografia</span>
-            <span>Goiânia - GO &bull; Brasil</span>
+          <div class="footer-top-grid">
+            <div class="footer-col-brand">
+              <p class="footer-brand">Gabriel Abdala</p>
+              <p class="footer-tagline">Fotografia de casamento autoral, afetiva e atemporal.</p>
+            </div>
+            <div class="footer-col-links">
+              <span class="footer-heading">Navegação</span>
+              <ul class="footer-nav">
+                <li><a href="#filosofia">Filosofia</a></li>
+                <li><a href="#galeria">Arco Narrativo</a></li>
+                <li><a href="#sobre">Sobre o Gabriel</a></li>
+                <li><a href="#servicos">Coberturas</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#duvidas">Dúvidas Frequentes</a></li>
+              </ul>
+            </div>
+            <div class="footer-col-contact">
+              <span class="footer-heading">Atendimento</span>
+              <div class="footer-contacts">
+                <span>WhatsApp: +55 (62) 99325-8802</span>
+                <span>Instagram: @Abdalafotografia</span>
+                <span>Goiânia - GO &bull; Brasil & Destination</span>
+              </div>
+            </div>
           </div>
-          <p class="footer-copy">&copy; 2026 Gabriel Abdala Fotografia. Todos os direitos reservados.</p>
+          
+          <div class="footer-bottom-bar">
+            <p class="footer-copy">&copy; 2026 Gabriel Abdala Fotografia. Todos os direitos reservados.</p>
+            <a href="#heroSection" class="back-to-top" aria-label="Voltar ao topo">Voltar ao Topo &uarr;</a>
+          </div>
         </footer>
       </div>
     </section>
   </main>
 
   <!-- =========================================================================
-       STICKY MORPH BUTTON (TRANSIÇÃO DO BOTÃO DA HERO NO SCROLL)
+       STICKY MORPH BUTTON (WHATSAPP FLUTUANTE SUAVE NO SCROLL)
        ========================================================================= -->
   <a href="https://wa.me/5562993258802?text=Ol%C3%A1%20Gabriel!%20Gostaria%20de%20consultar%20a%20disponibilidade%20da%20minha%20data." target="_blank" rel="noopener noreferrer" class="sticky-action-btn" id="stickyWhatsAppBtn" aria-label="Verificar data no WhatsApp">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.043.072.043.419-.101.824z"/></svg>
@@ -579,7 +743,7 @@
   </a>
 
   <!-- =========================================================================
-       LIGHTBOX MODAL (AMPLIAÇÃO REAL DA FOTO COM ZOOM E X GRANDE)
+       LIGHTBOX MODAL (AMPLIAÇÃO EDITORIAL COM ZOOM E X FECHAR)
        ========================================================================= -->
   <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true">
     <button class="lightbox-close-btn" id="lightboxCloseBtn" aria-label="Fechar pop-up">&times;</button>
@@ -588,7 +752,7 @@
         <img id="lightboxImg" src="" alt="Fotografia ampliada">
       </div>
       <div class="lightbox-details">
-        <span class="lightbox-tag" id="lightboxTag">ENQUADRAMENTO</span>
+        <span class="lightbox-tag" id="lightboxTag">ENQUADRAMENTO EDITORIAL</span>
         <h3 class="lightbox-title" id="lightboxTitle">Título da Fotografia</h3>
         <p class="lightbox-description" id="lightboxDesc">Descrição do momento e enquadramento.</p>
       </div>
@@ -596,127 +760,114 @@
   </div>
 
   <!-- =========================================================================
-       SCRIPTS INTERATIVOS
+       SCRIPTS VANILLA JS PUROS (ULTRA-LEVES & SEM DEPENDÊNCIAS)
        ========================================================================= -->
   <script>
-    // 1. Acordeão do FAQ
-    document.querySelectorAll('.faq-question').forEach(button => {
-      button.addEventListener('click', () => {
-        const item = button.parentElement;
-        const isActive = item.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(otherItem => otherItem.classList.remove('active'));
-        if (!isActive) item.classList.add('active');
-      });
-    });
-
-    // 2. Carrossel de Serviços Prestados
-    const trackContainer = document.getElementById('carouselTrackContainer');
-    const btnPrev = document.getElementById('carouselPrev');
-    const btnNext = document.getElementById('carouselNext');
-
-    if (btnPrev && btnNext && trackContainer) {
-      btnPrev.addEventListener('click', () => {
-        const scrollAmount = window.innerWidth <= 768 ? window.innerWidth * 0.8 : 340;
-        trackContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-      });
-      btnNext.addEventListener('click', () => {
-        const scrollAmount = window.innerWidth <= 768 ? window.innerWidth * 0.8 : 340;
-        trackContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-      });
-    }
-
-    // 3. Slideshow Suave no Fundo da Hero
-    const heroBg = document.getElementById('heroBgSlideshow');
-    if (heroBg) {
-      const heroSlides = [
-        'assets/images/hero-casamento.webp',
-        'assets/images/hero-slide-2.webp'
-      ];
-      let currentSlide = 0;
-      setInterval(() => {
-        currentSlide = (currentSlide + 1) % heroSlides.length;
-        heroBg.style.backgroundImage = `url('${heroSlides[currentSlide]}')`;
-      }, 7000);
-    }
-
-    // 4. Animação Morfa do Botão da Hero para Sticky Button no Scroll
-    const heroCtaBtn = document.getElementById("heroCtaBtn");
-    const stickyWhatsAppBtn = document.getElementById("stickyWhatsAppBtn");
-
-    function updateStickyButton() {
-      if (!heroCtaBtn || !stickyWhatsAppBtn) return;
-      const rect = heroCtaBtn.getBoundingClientRect();
-      if (rect.bottom < 50 || window.scrollY > 250) {
-        stickyWhatsAppBtn.classList.add("active");
-      } else {
-        stickyWhatsAppBtn.classList.remove("active");
-      }
-    }
-
-    window.addEventListener("scroll", updateStickyButton, { passive: true });
-    window.addEventListener("DOMContentLoaded", updateStickyButton);
-    updateStickyButton();
-            stickyWhatsAppBtn.classList.remove('active');
-          }
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Acordeão do FAQ
+      document.querySelectorAll('.faq-question').forEach(button => {
+        button.addEventListener('click', () => {
+          const item = button.parentElement;
+          const isActive = item.classList.contains('active');
+          document.querySelectorAll('.faq-item').forEach(otherItem => otherItem.classList.remove('active'));
+          if (!isActive) item.classList.add('active');
         });
-      }, {
-        root: null,
-        threshold: 0.1
       });
 
-      observer.observe(heroCtaBtn);
-    }
+      // 2. Carrossel de Serviços Prestados
+      const trackContainer = document.getElementById('carouselTrackContainer');
+      const btnPrev = document.getElementById('carouselPrev');
+      const btnNext = document.getElementById('carouselNext');
 
-    // 5. Lightbox Modal com Zoom e X Grande
-    const modal = document.getElementById('lightboxModal');
-    const closeBtn = document.getElementById('lightboxCloseBtn');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const tagEl = document.getElementById('lightboxTag');
-    const titleEl = document.getElementById('lightboxTitle');
-    const descEl = document.getElementById('lightboxDesc');
-
-    function openLightbox(src, title, tag, desc) {
-      if (!src) return;
-      lightboxImg.src = src;
-      lightboxImg.alt = title || 'Fotografia de casamento';
-      tagEl.textContent = tag || 'ENQUADRAMENTO EDITORIAL';
-      titleEl.textContent = title || 'Fotografia Autoral';
-      descEl.textContent = desc || 'Momentos autênticos capturados com sensibilidade documental.';
-      
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    document.querySelectorAll('.editorial-img-wrapper').forEach(wrapper => {
-      wrapper.addEventListener('click', () => {
-        const src = wrapper.dataset.src || wrapper.querySelector('img')?.src;
-        const title = wrapper.dataset.title;
-        const tag = wrapper.dataset.tag;
-        const desc = wrapper.dataset.desc;
-        openLightbox(src, title, tag, desc);
-      });
-    });
-
-    const aboutImg = document.querySelector('.about-real-img');
-    if (aboutImg) {
-      aboutImg.addEventListener('click', () => {
-        openLightbox(aboutImg.src, aboutImg.dataset.title, aboutImg.dataset.tag, aboutImg.dataset.desc);
-      });
-    }
-
-    closeBtn.addEventListener('click', closeLightbox);
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeLightbox();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && modal.classList.contains('active')) {
-        closeLightbox();
+      if (btnPrev && btnNext && trackContainer) {
+        btnPrev.addEventListener('click', () => {
+          const scrollAmount = window.innerWidth <= 768 ? window.innerWidth * 0.8 : 340;
+          trackContainer.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+        btnNext.addEventListener('click', () => {
+          const scrollAmount = window.innerWidth <= 768 ? window.innerWidth * 0.8 : 340;
+          trackContainer.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
       }
+
+      // 3. Slideshow Suave no Fundo da Hero
+      const heroBg = document.getElementById('heroBgSlideshow');
+      if (heroBg) {
+        const heroSlides = [
+          'assets/images/hero-casamento.webp',
+          'assets/images/hero-slide-2.webp'
+        ];
+        let currentSlide = 0;
+        setInterval(() => {
+          currentSlide = (currentSlide + 1) % heroSlides.length;
+          heroBg.style.backgroundImage = `url('${heroSlides[currentSlide]}')`;
+        }, 7000);
+      }
+
+      // 4. Animação Morfa do Botão da Hero para Sticky Button no Scroll
+      const heroCtaBtn = document.getElementById("heroCtaBtn");
+      const stickyWhatsAppBtn = document.getElementById("stickyWhatsAppBtn");
+
+      function updateStickyButton() {
+        if (!heroCtaBtn || !stickyWhatsAppBtn) return;
+        const rect = heroCtaBtn.getBoundingClientRect();
+        if (rect.bottom < 50 || window.scrollY > 250) {
+          stickyWhatsAppBtn.classList.add("active");
+        } else {
+          stickyWhatsAppBtn.classList.remove("active");
+        }
+      }
+
+      window.addEventListener("scroll", updateStickyButton, { passive: true });
+      updateStickyButton();
+
+      // 5. Lightbox Modal com Zoom e X
+      const modal = document.getElementById('lightboxModal');
+      const closeBtn = document.getElementById('lightboxCloseBtn');
+      const lightboxImg = document.getElementById('lightboxImg');
+      const tagEl = document.getElementById('lightboxTag');
+      const titleEl = document.getElementById('lightboxTitle');
+      const descEl = document.getElementById('lightboxDesc');
+
+      function openLightbox(src, title, tag, desc) {
+        if (!src || !modal) return;
+        lightboxImg.src = src;
+        lightboxImg.alt = title || 'Fotografia de casamento';
+        tagEl.textContent = tag || 'ENQUADRAMENTO EDITORIAL';
+        titleEl.textContent = title || 'Fotografia Autoral';
+        descEl.textContent = desc || 'Momentos autênticos capturados com sensibilidade documental.';
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        if (!modal) return;
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      document.querySelectorAll('.editorial-img-wrapper').forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+          const src = wrapper.dataset.src || wrapper.querySelector('img')?.src;
+          const title = wrapper.dataset.title;
+          const tag = wrapper.dataset.tag;
+          const desc = wrapper.dataset.desc;
+          openLightbox(src, title, tag, desc);
+        });
+      });
+
+      if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+      if (modal) {
+        modal.addEventListener('click', (e) => {
+          if (e.target === modal) closeLightbox();
+        });
+      }
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+          closeLightbox();
+        }
+      });
     });
   </script>
 </body>
