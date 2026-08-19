@@ -1,0 +1,4 @@
+# Previews temporários locais
+preview_*.png
+*.tmp
+.DS_Store
