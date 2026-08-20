@@ -878,21 +878,41 @@
         }, 7000);
       }
 
-      // 4. Animação Morfa do Botão da Hero para Sticky Button no Scroll
+      // 4. Animação Morfa Contínua: Hero CTA -> Encurtamento progressivo -> Bolinha Sticky WhatsApp
       const heroCtaBtn = document.getElementById("heroCtaBtn");
       const stickyWhatsAppBtn = document.getElementById("stickyWhatsAppBtn");
 
+      let isTicking = false;
       function updateStickyButton() {
         if (!heroCtaBtn || !stickyWhatsAppBtn) return;
+        const scrollY = window.scrollY || window.pageYOffset;
         const rect = heroCtaBtn.getBoundingClientRect();
-        if (rect.bottom < 50 || window.scrollY > 250) {
+        
+        // 1. Quando o botão da Hero começa a sair da tela, o sticky surge como pílula
+        const shouldBeVisible = rect.bottom < 140 || scrollY > 100;
+        // 2. Conforme o scroll avança, a pílula vai encurtando suavemente até virar bolinha circular
+        const shouldBeCircle = rect.bottom < -30 || scrollY > 240;
+
+        if (shouldBeVisible) {
           stickyWhatsAppBtn.classList.add("active");
+          if (shouldBeCircle) {
+            stickyWhatsAppBtn.classList.add("morphed-circle");
+          } else {
+            stickyWhatsAppBtn.classList.remove("morphed-circle");
+          }
         } else {
           stickyWhatsAppBtn.classList.remove("active");
+          stickyWhatsAppBtn.classList.remove("morphed-circle");
         }
+        isTicking = false;
       }
 
-      window.addEventListener("scroll", updateStickyButton, { passive: true });
+      window.addEventListener("scroll", () => {
+        if (!isTicking) {
+          window.requestAnimationFrame(updateStickyButton);
+          isTicking = true;
+        }
+      }, { passive: true });
       updateStickyButton();
 
       // 5. Lightbox Modal com Zoom e X

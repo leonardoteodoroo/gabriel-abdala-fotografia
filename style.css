@@ -1383,40 +1383,131 @@ h2 {
 }
 
 /* ==========================================================================
-   STICKY WHATSAPP BUTTON (MORFING NO SCROLL)
+   STICKY WHATSAPP BUTTON (MORFING INTELIGENTE NO SCROLL)
    ========================================================================== */
 
 .sticky-action-btn {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
-  background-color: #25D366;
+  justify-content: center;
+  background-color: var(--accent-sage); /* Mesma cor Sage/Oliva da Hero #718265 */
   color: #FFFFFF;
-  padding: 0.85rem 1.4rem;
-  border-radius: var(--radius-full);
-  font-size: 0.88rem;
-  font-weight: 600;
-  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
-  z-index: 99;
+  border-radius: 9999px;
+  box-shadow: 0 10px 28px rgba(113, 130, 101, 0.45);
+  z-index: 999;
+  text-decoration: none;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(20px);
-  transition: var(--transition-smooth);
+  transform: translateY(24px) scale(0.9);
+  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.25s ease,
+              box-shadow 0.25s ease,
+              width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              padding 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  height: 54px;
+  padding: 0 1.5rem;
+  will-change: transform, width, opacity;
 }
 
+.sticky-action-btn svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  fill: currentColor;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sticky-action-btn .sticky-text {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  margin-left: 0.65rem;
+  opacity: 1;
+  max-width: 260px;
+  transition: opacity 0.35s ease,
+              max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              margin 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.35s ease;
+}
+
+/* Estado 1: Ativo / Aparecendo como Pílula Completa */
 .sticky-action-btn.active {
   opacity: 1;
   pointer-events: auto;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
-.sticky-action-btn:hover {
-  background-color: #1EBE5D;
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+/* Estado 2: Morfado em Bolinha Circular (Encurtado) */
+.sticky-action-btn.morphed-circle {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 0 10px 26px rgba(113, 130, 101, 0.5);
+}
+
+.sticky-action-btn.morphed-circle .sticky-text {
+  opacity: 0;
+  max-width: 0;
+  margin-left: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+}
+
+/* Hover no Desktop quando em formato de Bolinha: Expande suavemente */
+@media (hover: hover) and (min-width: 769px) {
+  .sticky-action-btn.morphed-circle:hover {
+    width: auto;
+    padding: 0 1.4rem;
+    border-radius: 9999px;
+    background-color: var(--accent-sage-dark);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 14px 34px rgba(86, 101, 77, 0.55);
+  }
+
+  .sticky-action-btn.morphed-circle:hover .sticky-text {
+    opacity: 1;
+    max-width: 260px;
+    margin-left: 0.65rem;
+    transform: translateX(0);
+  }
+
+  .sticky-action-btn:hover {
+    background-color: var(--accent-sage-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px rgba(86, 101, 77, 0.55);
+  }
+  
+  .sticky-action-btn:hover svg {
+    transform: scale(1.1);
+  }
+}
+
+/* Ajustes Mobile: Ícone Maior e Toque Confortável */
+@media (max-width: 768px) {
+  .sticky-action-btn {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    height: 58px;
+  }
+
+  .sticky-action-btn svg {
+    width: 28px; /* Ícone do WhatsApp maior no mobile conforme solicitado */
+    height: 28px;
+  }
+
+  .sticky-action-btn.morphed-circle {
+    width: 58px;
+    height: 58px;
+  }
 }
 
 /* ==========================================================================
