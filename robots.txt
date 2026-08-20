@@ -1,0 +1,15 @@
+# ==============================================================================
+# Robots.txt — Gabriel Abdala Fotografia
+# Domínio Oficial: https://gabrielabdala.semprenamoda.com.br/
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemaps Oficiais
+Sitemap: https://gabrielabdala.semprenamoda.com.br/sitemap.xml
+
+# LLM & AI Search Engines Context (ChatGPT, Perplexity, Claude, Gemini, Copilot)
+# Padrão llmstxt.org
+# LLMs Summary: https://gabrielabdala.semprenamoda.com.br/llms.txt
+# LLMs Full Context: https://gabrielabdala.semprenamoda.com.br/llms-full.txt

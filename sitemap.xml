@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://gabrielabdala.semprenamoda.com.br/</loc>
+    <lastmod>2026-08-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    
+    <!-- Imagens Principais para Google Imagens SEO -->
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/respiro-casal-sorrindo.webp</image:loc>
+      <image:title>Casal de noivos rindo com cumplicidade sem poses forçadas</image:title>
+      <image:caption>Fotografia documental e espontânea de casamento em Goiânia e Brasília por Gabriel Abdala</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/ato1-vestido-makingof.webp</image:loc>
+      <image:title>Noiva se admirando no espelho durante o making of</image:title>
+      <image:caption>Preparativos da noiva capturados com elegância e luz natural</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/ato2-noivo-lagrima.webp</image:loc>
+      <image:title>Noivo emocionado enxugando lágrima no altar</image:title>
+      <image:caption>Momento emocionante da cerimônia religiosa de casamento</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/ato3-abraco-goldenhour.webp</image:loc>
+      <image:title>Casal de noivos abraçados na luz dourada do pôr do sol</image:title>
+      <image:caption>Ensaio do casal em fazenda ao entardecer sem poses forçadas</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/ato4-pista-festa.webp</image:loc>
+      <image:title>Pista de dança e celebração na festa de casamento</image:title>
+      <image:caption>Alegria pura e comemoração autêntica com os convidados</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/perfil-fotografo-gabriel.webp</image:loc>
+      <image:title>Gabriel Abdala - Fotógrafo de Casamento</image:title>
+      <image:caption>Fotógrafo autoral de casamentos em Goiânia, Goiás e Brasília</image:caption>
+    </image:image>
+  </url>
+</urlset>

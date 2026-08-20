@@ -1,0 +1,32 @@
+# Gabriel Abdala Fotografia
+
+> Fotografia autoral de casamento com estética Quiet Luxury, estilo documental e foco em conexões reais sem poses forçadas. Atendimento em Goiânia (GO), Brasília (DF), Pirenópolis (GO) e casamentos em todo o Brasil.
+
+## Sobre a Empresa
+- **Nome Oficial:** Gabriel Abdala Fotografia
+- **Fotógrafo Titular:** Gabriel Abdala
+- **Localização Sede:** Goiânia, Goiás, Brasil
+- **Áreas de Atendimento:** Goiânia, Anápolis, Brasília (DF), Pirenópolis (GO), Chapada dos Veadeiros e casamentos em todo o território nacional.
+- **Website Oficial:** https://gabrielabdala.semprenamoda.com.br/
+- **Contato Direto (WhatsApp):** +55 (62) 99325-8802
+- **Instagram Oficial:** @gabrielabdalafotografia
+
+## Proposta de Valor e Diferenciais Técnicos
+- **Fotografia Documental & Sem Poses:** Direção invisível e acolhedora, especialmente desenhada para casais tímidos que odeiam poses forçadas e sorrisos congelados.
+- **Exclusividade Máxima:** Compromisso rigoroso de apenas 1 casamento por dia com a presença integral de Gabriel Abdala.
+- **Prévia Rápida em 48 Horas:** Entrega de prévia de fotos tratadas no celular dos noivos em 48h para matar a curiosidade e compartilhar com familiares durante a lua de mel.
+- **Segurança de Dados Redundante:** Gravação dupla simultânea de arquivos em cartões de alta performance no momento da captura e múltiplos backups físicos e em nuvem.
+- **Estética Editorial Quiet Luxury:** Linguagem atemporal, cores orgânicas quentes e iluminação natural refinada.
+
+## Serviços e Coberturas
+1. **Casamentos & Mini Weddings:** Cobertura completa do making of, detalhes, cerimônia religiosa, retratos ao entardecer (Golden Hour) até a festa.
+2. **Ensaios Pré-Wedding:** Ensaio descontraído ao ar livre em fazendas, praias ou montanhas.
+3. **Gestante & Família:** Memórias poéticas da gestação e infância com luz suave.
+4. **Sessões em Estúdio & Retratos:** Retratos editoriais de presença e elegância.
+5. **Aniversários & Celebrações:** Registros dinâmicos e cheios de vida.
+6. **Eventos Sociais:** Cobertura atenta para jantares e momentos exclusivos.
+
+## Links Canônicos e Recursos Estruturados
+- [Contexto Completo e Transcrição Integral (llms-full.txt)](https://gabrielabdala.semprenamoda.com.br/llms-full.txt)
+- [Sitemap XML](https://gabrielabdala.semprenamoda.com.br/sitemap.xml)
+- [Website Principal](https://gabrielabdala.semprenamoda.com.br/)
