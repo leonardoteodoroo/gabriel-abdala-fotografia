@@ -82,35 +82,42 @@
     </section>
 
     <!-- =========================================================================
-         3. O RESPIRO & FOTOS SOBREPOSTAS EM CAMADAS (LAYERED FRAMES)
+         3. O RESPIRO & 3D INFINITE GALLERY (FULL-WIDTH CINEMATOGRÁFICO)
          ========================================================================= -->
     <section class="section-respiro" id="filosofia">
-      <div class="container respiro-grid">
-        <!-- Moldura Editorial 3D Infinite Gallery (Three.js WebGL) -->
-        <div class="infinite-3d-gallery-frame" id="infinite-3d-gallery-frame">
-          <canvas id="infinite-3d-canvas" class="infinite-3d-canvas"></canvas>
-          <div class="gallery-3d-badge">
-            <span class="gallery-3d-badge-dot"></span>
-            Memórias Vivas &bull; 3D
-          </div>
-          <div class="gallery-3d-hint">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            Arraste para navegar
-          </div>
-        </div>
-
-        <div class="respiro-text">
+      <div class="container">
+        <div class="respiro-header-intro">
           <span class="eyebrow">Sem Poses &bull; Sem Roteiros Falsos</span>
           <h2>“Meu noivo odeia tirar fotos e nós somos super tímidos…”</h2>
           <p class="lead-text">
-            Se eu ganhasse um real para cada vez que ouvi essa frase de uma noiva, eu já estaria aposentado!
+            O nosso estilo é invisível. A gente conversa, dá risada e deixa vocês tão livres que vocês esquecem completamente a câmera. O resultado são memórias com a alma e a verdade de vocês.
           </p>
-          <div class="respiro-quote">
-            “Vocês não são tímidos: vocês só odeiam poses forçadas e sorrisos congelados — e com toda razão.”
+        </div>
+      </div>
+
+      <!-- Palco 3D Full-Width Edge-to-Edge -->
+      <div class="infinite-3d-fullwidth-stage" id="infinite-3d-gallery-frame">
+        <canvas id="infinite-3d-canvas" class="infinite-3d-canvas"></canvas>
+        
+        <div class="gallery-3d-badge">
+          <span class="gallery-3d-badge-dot"></span>
+          Memórias Vivas &bull; 3D
+        </div>
+
+        <!-- Linha do Tempo / Timeline Scrubber Interativo -->
+        <div class="gallery-timeline-container">
+          <div class="gallery-timeline-track" id="gallery-timeline-track" title="Arraste para navegar no tempo">
+            <div class="gallery-timeline-progress" id="gallery-timeline-progress"></div>
+            <div class="gallery-timeline-handle" id="gallery-timeline-handle">
+              <span class="handle-dot"></span>
+            </div>
           </div>
-          <p class="lead-text">
-            O nosso estilo é invisível. A gente conversa, dá risada e deixa vocês tão livres que vocês esquecem completamente que existe uma câmera ali. O resultado são imagens cheias de verdade e com a alma de vocês.
-          </p>
+          <div class="gallery-timeline-labels">
+            <span data-step="0">Making Of</span>
+            <span data-step="0.25">Cerimônia</span>
+            <span data-step="0.5">Golden Hour</span>
+            <span data-step="0.75">Celebração</span>
+          </div>
         </div>
       </div>
     </section>

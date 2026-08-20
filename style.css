@@ -397,29 +397,50 @@ h2 {
    ========================================================================== */
 
 .section-respiro {
-  padding: 6.5rem 0;
+  padding: 5.5rem 0 3.5rem;
   background-color: var(--bg-canvas);
+  overflow-x: clip;
 }
 
-.respiro-grid {
-  display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  gap: 4.5rem;
-  align-items: center;
+.respiro-header-intro {
+  max-width: 820px;
+  margin: 0 auto 3rem;
+  text-align: center;
+}
+
+.respiro-header-intro h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.25;
+  margin: 1rem 0;
+  color: var(--text-primary);
+}
+
+.respiro-header-intro .lead-text {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
 }
 
 /* ==========================================================================
-   MOLDURA EDITORIAL 3D INFINITE GALLERY (THREE.JS WEBGL)
+   PALCO 3D FULL-WIDTH EDGE-TO-EDGE & TIMELINE INTERATIVA
    ========================================================================== */
-.infinite-3d-gallery-frame {
+.infinite-3d-fullwidth-stage {
   position: relative;
-  width: 100%;
-  aspect-ratio: 4 / 4.8;
-  min-height: 480px;
-  background: radial-gradient(circle at center, #1c1c1f 0%, #111113 100%);
-  border-radius: var(--radius-xl, 24px);
-  border: 1px solid rgba(212, 175, 55, 0.25);
-  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  height: 75vh;
+  min-height: 520px;
+  max-height: 780px;
+  background: radial-gradient(circle at 50% 50%, #17171a 0%, #0d0d0f 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 -20px 40px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   display: flex;
   align-items: center;
@@ -444,60 +465,135 @@ h2 {
 
 .gallery-3d-badge {
   position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
+  top: 1.5rem;
+  left: 2rem;
   z-index: 10;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.4rem 0.9rem;
-  background: rgba(18, 18, 20, 0.8);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  padding: 0.45rem 1rem;
+  background: rgba(18, 18, 20, 0.75);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
   color: #f5f5f7;
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.05em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   pointer-events: none;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .gallery-3d-badge-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: #c5a059;
-  box-shadow: 0 0 8px #c5a059;
+  box-shadow: 0 0 10px #c5a059;
   animation: pulse3d 2s infinite ease-in-out;
 }
 
 @keyframes pulse3d {
   0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.2); }
+  50% { opacity: 1; transform: scale(1.25); }
 }
 
-.gallery-3d-hint {
+/* --------------------------------------------------------------------------
+   Timeline Scrubber (Linha do Tempo Interativa com Arraste)
+   -------------------------------------------------------------------------- */
+.gallery-timeline-container {
   position: absolute;
-  top: 1.25rem;
-  right: 1.25rem;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.75rem;
-  background: rgba(18, 18, 20, 0.65);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90vw, 560px);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: rgba(18, 18, 22, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.gallery-timeline-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.12);
   border-radius: 9999px;
-  color: rgba(255, 255, 255, 0.65);
-  font-size: 0.7rem;
-  font-family: var(--font-mono, monospace);
+  cursor: pointer;
+  touch-action: none;
+}
+
+.gallery-timeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #9a7836 0%, #d4af37 100%);
+  border-radius: 9999px;
   pointer-events: none;
+}
+
+.gallery-timeline-handle {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid #c5a059;
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.8), 0 2px 6px rgba(0,0,0,0.5);
+  cursor: grab;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.gallery-timeline-handle:active {
+  cursor: grabbing;
+  transform: translate(-50%, -50%) scale(1.15);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 1);
+}
+
+.handle-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #121214;
+}
+
+.gallery-timeline-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.gallery-timeline-labels span {
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.gallery-timeline-labels span:hover {
+  color: #d4af37;
 }
 
 .respiro-text {
