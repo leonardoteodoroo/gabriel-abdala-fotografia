@@ -425,7 +425,7 @@ h2 {
 }
 
 /* ==========================================================================
-   PALCO 3D FULL-WIDTH EDGE-TO-EDGE & TIMELINE INTERATIVA
+   PALCO 3D FULL-WIDTH EDGE-TO-EDGE COM TRANSIÇÃO EM GRADIENTE SUAVE
    ========================================================================== */
 .infinite-3d-fullwidth-stage {
   position: relative;
@@ -437,15 +437,38 @@ h2 {
   height: 75vh;
   min-height: 520px;
   max-height: 780px;
-  background: radial-gradient(circle at 50% 50%, #17171a 0%, #0d0d0f 100%);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: inset 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 -20px 40px rgba(0, 0, 0, 0.5);
+  background: var(--bg-canvas);
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none;
+}
+
+/* Gradiente de Fusão Superior (Transição sem cortes) */
+.infinite-3d-fullwidth-stage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, var(--bg-canvas) 0%, rgba(248, 246, 240, 0) 100%);
+  pointer-events: none;
+  z-index: 15;
+}
+
+/* Gradiente de Fusão Inferior (Transição sem cortes) */
+.infinite-3d-fullwidth-stage::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 160px;
+  background: linear-gradient(to top, var(--bg-canvas) 0%, rgba(248, 246, 240, 0) 100%);
+  pointer-events: none;
+  z-index: 15;
 }
 
 .infinite-3d-canvas {
@@ -457,48 +480,12 @@ h2 {
   display: block;
   outline: none;
   cursor: grab;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
+  mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%);
 }
 
 .infinite-3d-canvas:active {
   cursor: grabbing;
-}
-
-.gallery-3d-badge {
-  position: absolute;
-  top: 1.5rem;
-  left: 2rem;
-  z-index: 10;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.45rem 1rem;
-  background: rgba(18, 18, 20, 0.75);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
-  color: #f5f5f7;
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  pointer-events: none;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-}
-
-.gallery-3d-badge-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #c5a059;
-  box-shadow: 0 0 10px #c5a059;
-  animation: pulse3d 2s infinite ease-in-out;
-}
-
-@keyframes pulse3d {
-  0%, 100% { opacity: 0.4; transform: scale(0.9); }
-  50% { opacity: 1; transform: scale(1.25); }
 }
 
 /* --------------------------------------------------------------------------

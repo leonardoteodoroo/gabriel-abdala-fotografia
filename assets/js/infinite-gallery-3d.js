@@ -44,18 +44,19 @@
 
     // 1. Scene & Camera
     const scene = new THREE.Scene();
-    scene.fog = new THREE.FogExp2(0x0e0e11, 0.028);
+    scene.fog = new THREE.FogExp2(0xF8F6F0, 0.022);
 
     const camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 120);
     camera.position.set(0, 0, 11);
 
-    // 2. Renderer com DPR Clamping
+    // 2. Renderer com DPR Clamping e fundo transparente
     const renderer = new THREE.WebGLRenderer({
       canvas: canvas,
       antialias: true,
       alpha: true,
       powerPreference: 'high-performance'
     });
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, CONFIG.maxDPR));
     renderer.setSize(container.clientWidth, container.clientHeight);
 
