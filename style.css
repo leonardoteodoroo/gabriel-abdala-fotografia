@@ -1383,130 +1383,126 @@ h2 {
 }
 
 /* ==========================================================================
-   STICKY WHATSAPP BUTTON (MORFING INTELIGENTE NO SCROLL)
+   CTA DA HERO -> WHATSAPP FIXO (MORPH CONTÍNUO NO SCROLL)
    ========================================================================== */
 
-.sticky-action-btn {
-  position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+.hero-cta-slot {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--accent-sage); /* Mesma cor Sage/Oliva da Hero #718265 */
-  color: #FFFFFF;
-  border-radius: 9999px;
-  box-shadow: 0 10px 28px rgba(113, 130, 101, 0.45);
-  z-index: 999;
-  text-decoration: none;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(24px) scale(0.9);
-  transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              background-color 0.25s ease,
-              box-shadow 0.25s ease,
-              width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              padding 0.45s cubic-bezier(0.16, 1, 0.3, 1);
-  overflow: hidden;
-  height: 54px;
-  padding: 0 1.5rem;
-  will-change: transform, width, opacity;
 }
 
-.sticky-action-btn svg {
-  width: 24px;
-  height: 24px;
-  flex-shrink: 0;
+.hero-cta-slot.is-reserved {
+  width: var(--hero-cta-slot-width, auto);
+  height: var(--hero-cta-slot-height, auto);
+  flex: 0 0 auto;
+}
+
+.hero-whatsapp-cta {
+  position: relative;
+}
+
+.hero-whatsapp-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
   fill: currentColor;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.sticky-action-btn .sticky-text {
-  font-family: var(--font-sans);
-  font-size: 0.9rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  white-space: nowrap;
-  margin-left: 0.65rem;
-  opacity: 1;
-  max-width: 260px;
-  transition: opacity 0.35s ease,
-              max-width 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              margin 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.35s ease;
-}
-
-/* Estado 1: Ativo / Aparecendo como Pílula Completa */
-.sticky-action-btn.active {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0) scale(1);
-}
-
-/* Estado 2: Morfado em Bolinha Circular (Encurtado) */
-.sticky-action-btn.morphed-circle {
-  width: 56px;
-  height: 56px;
-  padding: 0;
-  border-radius: 50%;
-  box-shadow: 0 10px 26px rgba(113, 130, 101, 0.5);
-}
-
-.sticky-action-btn.morphed-circle .sticky-text {
   opacity: 0;
-  max-width: 0;
-  margin-left: 0;
-  transform: translateX(10px);
+  transform: translate(-50%, -50%) scale(0.72);
   pointer-events: none;
 }
 
-/* Hover no Desktop quando em formato de Bolinha: Expande suavemente */
+.hero-whatsapp-text {
+  white-space: nowrap;
+}
+
+.hero-whatsapp-cta.is-morphing {
+  position: fixed;
+  right: calc(2rem + env(safe-area-inset-right));
+  bottom: calc(2rem + env(safe-area-inset-bottom));
+  width: var(--morph-width, 60px);
+  height: var(--morph-height, 60px);
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 9999px;
+  z-index: 900;
+  background-color: var(--accent-sage);
+  box-shadow: 0 10px 28px rgba(113, 130, 101, 0.45);
+  transform: translate3d(var(--morph-x, 0px), var(--morph-y, 0px), 0);
+  will-change: transform, width, height;
+  transition: background-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.hero-whatsapp-cta.is-morphing .hero-whatsapp-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow: clip;
+  opacity: var(--morph-text-opacity, 0);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.hero-whatsapp-cta.is-morphing .hero-whatsapp-icon {
+  width: 30px;
+  height: 30px;
+  opacity: var(--morph-icon-opacity, 1);
+  transform: translate(-50%, -50%) scale(var(--morph-icon-scale, 1));
+  transition: opacity 0.14s linear, transform 0.18s ease-out;
+}
+
+.hero-whatsapp-cta.is-docked {
+  box-shadow: 0 12px 30px rgba(86, 101, 77, 0.52);
+}
+
 @media (hover: hover) and (min-width: 769px) {
-  .sticky-action-btn.morphed-circle:hover {
-    width: auto;
-    padding: 0 1.4rem;
-    border-radius: 9999px;
+  .hero-whatsapp-cta.is-docked:hover {
     background-color: var(--accent-sage-dark);
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 14px 34px rgba(86, 101, 77, 0.55);
+    transform: translate3d(
+      var(--morph-x, 0px),
+      calc(var(--morph-y, 0px) - 3px),
+      0
+    );
   }
 
-  .sticky-action-btn.morphed-circle:hover .sticky-text {
-    opacity: 1;
-    max-width: 260px;
-    margin-left: 0.65rem;
-    transform: translateX(0);
-  }
-
-  .sticky-action-btn:hover {
-    background-color: var(--accent-sage-dark);
-    transform: translateY(-3px);
-    box-shadow: 0 14px 34px rgba(86, 101, 77, 0.55);
-  }
-  
-  .sticky-action-btn:hover svg {
-    transform: scale(1.1);
+  .hero-whatsapp-cta.is-docked:hover .hero-whatsapp-icon {
+    transform: translate(-50%, -50%) scale(var(--morph-icon-scale, 1)) scale(1.08);
   }
 }
 
-/* Ajustes Mobile: Ícone Maior e Toque Confortável */
+.hero-whatsapp-cta:focus-visible {
+  outline: 3px solid #FFFFFF;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 8px rgba(113, 130, 101, 0.72),
+              0 14px 34px rgba(86, 101, 77, 0.55);
+}
+
 @media (max-width: 768px) {
-  .sticky-action-btn {
-    bottom: 1.5rem;
-    right: 1.5rem;
-    height: 58px;
+  .hero-whatsapp-cta.is-morphing {
+    right: calc(1.25rem + env(safe-area-inset-right));
+    bottom: calc(1.25rem + env(safe-area-inset-bottom));
+    width: var(--morph-width, 64px);
+    height: var(--morph-height, 64px);
   }
 
-  .sticky-action-btn svg {
-    width: 28px; /* Ícone do WhatsApp maior no mobile conforme solicitado */
-    height: 28px;
+  .hero-whatsapp-cta.is-morphing .hero-whatsapp-icon {
+    width: 34px;
+    height: 34px;
   }
+}
 
-  .sticky-action-btn.morphed-circle {
-    width: 58px;
-    height: 58px;
+@media (prefers-reduced-motion: reduce) {
+  .hero-whatsapp-cta.is-morphing,
+  .hero-whatsapp-cta.is-docked,
+  .hero-whatsapp-cta.is-morphing .hero-whatsapp-icon,
+  .hero-whatsapp-cta.is-docked .hero-whatsapp-icon {
+    transition: none;
   }
 }
 
@@ -1801,13 +1797,4 @@ h2 {
     padding: 1.5rem;
   }
   
-  .sticky-text {
-    display: none;
-  }
-  
-  .sticky-action-btn {
-    padding: 0.85rem;
-    bottom: 1.25rem;
-    right: 1.25rem;
-  }
 }
