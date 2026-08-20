@@ -21,10 +21,11 @@
 ## Serviços e Coberturas
 1. **Casamentos & Mini Weddings:** Cobertura completa do making of, detalhes, cerimônia religiosa, retratos ao entardecer (Golden Hour) até a festa.
 2. **Ensaios Pré-Wedding:** Ensaio descontraído ao ar livre em fazendas, praias ou montanhas.
-3. **Gestante & Família:** Memórias poéticas da gestação e infância com luz suave.
-4. **Sessões em Estúdio & Retratos:** Retratos editoriais de presença e elegância.
-5. **Aniversários & Celebrações:** Registros dinâmicos e cheios de vida.
-6. **Eventos Sociais:** Cobertura atenta para jantares e momentos exclusivos.
+3. **Álbuns Físicos Fine Art:** Encadernação artesanal em linho puro, abertura panorâmica 180° e impressão em papel 100% algodão museológico (durabilidade superior a 100 anos).
+4. **Gestante & Família:** Memórias poéticas da gestação e infância com luz suave.
+5. **Sessões em Estúdio & Retratos:** Retratos editoriais de presença e elegância.
+6. **Aniversários & Celebrações:** Registros dinâmicos e cheios de vida.
+7. **Eventos Sociais:** Cobertura atenta para jantares e momentos exclusivos.
 
 ## Links Canônicos e Recursos Estruturados
 - [Contexto Completo e Transcrição Integral (llms-full.txt)](https://gabrielabdala.semprenamoda.com.br/llms-full.txt)

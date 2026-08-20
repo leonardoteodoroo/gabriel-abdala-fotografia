@@ -1166,81 +1166,120 @@ h2 {
 }
 
 /* ==========================================================================
-   11. PALETA CROMÁTICA (DESIGN SYSTEM 1:1)
+   11. A EXPERIÊNCIA TÁTIL DO ÁLBUM FINE ART (PATRIMÔNIO DA FAMÍLIA)
    ========================================================================== */
 
-.section-palette-tokens {
-  padding: 6.5rem 0;
+.section-album {
+  padding: 7rem 0;
   background-color: var(--bg-canvas);
   border-top: 1px solid var(--border-subtle);
-}
-
-.palette-header {
-  text-align: center;
-  max-width: 680px;
-  margin: 0 auto 3.5rem;
-}
-
-.palette-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-}
-
-.color-card {
-  background-color: #FFFFFF;
-  border-radius: var(--radius-md);
-  overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--border-subtle);
-}
-
-.color-swatch-box {
-  height: 120px;
+  border-bottom: 1px solid var(--border-subtle);
   position: relative;
-  padding: 0.75rem;
+  overflow: hidden;
+}
+
+.album-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4.5rem;
+  align-items: center;
+}
+
+.album-media-showcase {
+  position: relative;
+}
+
+.album-main-frame {
+  box-shadow: 0 24px 48px -12px rgba(26, 23, 23, 0.18);
+  border-radius: var(--radius-md);
+}
+
+.album-detail-inset {
+  position: absolute;
+  bottom: -2.5rem;
+  right: -2rem;
+  width: 52%;
+  max-width: 280px;
+  box-shadow: 0 20px 40px -8px rgba(26, 23, 23, 0.25);
+  border-radius: var(--radius-md);
+  border: 4px solid var(--bg-canvas);
+  z-index: 2;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.album-detail-inset:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+.album-narrative-content {
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  flex-direction: column;
 }
 
-.hex-badge {
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 0.25rem 0.55rem;
-  border-radius: var(--radius-sm);
-  background-color: rgba(35, 31, 32, 0.85);
-  color: #FFFFFF;
+.album-narrative-content h2 {
+  margin-bottom: 1.25rem;
+  line-height: 1.25;
 }
 
-.hex-badge-dark {
-  background-color: rgba(248, 246, 240, 0.9);
-  color: #231F20;
+.album-specs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+  margin: 2.25rem 0;
 }
 
-.color-info {
-  padding: 1.25rem;
+.album-spec-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  padding: 1rem 1.25rem;
+  background-color: var(--bg-sand);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  transition: var(--transition-smooth);
 }
 
-.color-role {
-  font-size: 0.7rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent-sage-dark);
-  display: block;
+.album-spec-item:hover {
+  background-color: #FFFFFF;
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.spec-icon {
+  font-size: 1.4rem;
+  line-height: 1.2;
+  flex-shrink: 0;
+}
+
+.spec-details h4 {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
   margin-bottom: 0.25rem;
 }
 
-.color-name {
-  font-size: 1.15rem;
-  margin-bottom: 0.35rem;
+.spec-details p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.55;
 }
 
-.color-desc {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  line-height: 1.5;
+.album-cta-holder {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 991px) {
+  .album-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .album-detail-inset {
+    bottom: -1.5rem;
+    right: 0.5rem;
+    width: 45%;
+  }
 }
 
 /* ==========================================================================

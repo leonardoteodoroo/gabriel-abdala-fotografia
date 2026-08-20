@@ -43,5 +43,17 @@
       <image:title>Gabriel Abdala - Fotógrafo de Casamento</image:title>
       <image:caption>Fotógrafo autoral de casamentos em Goiânia, Goiás e Brasília</image:caption>
     </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/album-fine-art-aberto.webp</image:loc>
+      <image:title>Álbum de Casamento Fine Art em Papel Algodão</image:title>
+      <image:caption>Álbum físico encadernado artesanalmente em linho com papel 100% algodão e abertura 180 graus</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://gabrielabdala.semprenamoda.com.br/assets/images/album-fine-art-detalhe.webp</image:loc>
+      <image:title>Capa em Linho Puro e Gravação Artesanal em Baixo Relevo</image:title>
+      <image:caption>Detalhe da textura tátil do linho nobre e acabamento feito à mão</image:caption>
+    </image:image>
   </url>
 </urlset>
