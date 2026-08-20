@@ -86,21 +86,16 @@
          ========================================================================= -->
     <section class="section-respiro" id="filosofia">
       <div class="container respiro-grid">
-        <!-- Composição Tripla com Molduras Táteis de Álbum de Luxo -->
-        <div class="overlap-container-3">
-          <!-- Foto 1: Vertical 4:5 -->
-          <div class="editorial-img-wrapper ratio-4-5 overlap-photo-main editorial-frame" data-src="assets/images/respiro-casal-sorrindo.webp" data-title="Sorriso Cúmplice a Dois" data-tag="4:5 Retrato Editorial" data-desc="O noivo rindo de verdade com a noiva sem nenhuma pose forçada.">
-            <img src="assets/images/respiro-casal-sorrindo.webp" alt="Casal de noivos rindo com cumplicidade sem poses forçadas" class="editorial-img" loading="lazy">
+        <!-- Moldura Editorial 3D Infinite Gallery (Three.js WebGL) -->
+        <div class="infinite-3d-gallery-frame" id="infinite-3d-gallery-frame">
+          <canvas id="infinite-3d-canvas" class="infinite-3d-canvas"></canvas>
+          <div class="gallery-3d-badge">
+            <span class="gallery-3d-badge-dot"></span>
+            Memórias Vivas &bull; 3D
           </div>
-          
-          <!-- Foto 2: 3:4 Sobreposta -->
-          <div class="editorial-img-wrapper ratio-3-4 overlap-photo-accent editorial-frame" data-src="assets/images/respiro-abraco.webp" data-title="O Abraço Espontâneo" data-tag="3:4 Espontâneo" data-desc="Luz natural filtrada realçando a textura do vestido e o abraço apertado.">
-            <img src="assets/images/respiro-abraco.webp" alt="Abraço espontâneo com luz natural" class="editorial-img" loading="lazy">
-          </div>
-
-          <!-- Foto 3: 1:1 Quadrada Sobreposta -->
-          <div class="editorial-img-wrapper ratio-1-1 overlap-photo-badge editorial-frame" data-src="assets/images/respiro-maos-aliancas.webp" data-title="Toque de Mãos & Alianças" data-tag="1:1 Detalhe Afetivo" data-desc="O gesto íntimo de mãos entrelaçadas durante os votos.">
-            <img src="assets/images/respiro-maos-aliancas.webp" alt="Mãos entrelaçadas com alianças de casamento" class="editorial-img" loading="lazy">
+          <div class="gallery-3d-hint">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            Arraste para navegar
           </div>
         </div>
 
@@ -873,5 +868,9 @@
       });
     });
   </script>
+
+  <!-- Three.js & Infinite 3D Gallery Engine -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+  <script src="assets/js/infinite-gallery-3d.js" defer></script>
 </body>
 </html>
