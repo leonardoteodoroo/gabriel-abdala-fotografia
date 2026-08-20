@@ -18,7 +18,7 @@ export default function XkintaroPreview() {
 
         <div className="flex items-center gap-3">
           <a
-            href="http://localhost:5174/"
+            href="./xkintaro/index.html"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-md font-medium transition-colors flex items-center gap-1.5 border border-white/15"
@@ -31,7 +31,7 @@ export default function XkintaroPreview() {
 
       {/* Frame Interativo */}
       <iframe
-        src="http://localhost:5174/"
+        src="./xkintaro/index.html"
         title="Xkintaro Portfolio Replica"
         className="w-full flex-1 border-0 bg-background"
       />
