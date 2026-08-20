@@ -2,7 +2,7 @@
  * ==========================================================================
  * Infinite 3D Gallery (Three.js WebGL)
  * Palco Full-Width Widescreen com Linha do Tempo (Timeline Scrubber) Interativa
- * Otimizado para 60 FPS com IntersectionObserver e Clamping de DPR
+ * Otimizado para 60 FPS com Scroll Mobile Suave (Touch Pan-Y & Delta Time)
  * ==========================================================================
  */
 
@@ -24,9 +24,9 @@
     zSpacing: 6.0,
     visibleCount: 8,
     depthRange: 48.0, // visibleCount * zSpacing
-    baseSpeed: 0.032, // Velocidade aumentada e perceptível
-    dragSensitivity: 0.009,
-    damping: 0.93,
+    baseSpeed: 0.034, // Velocidade base fluida e constante
+    dragSensitivity: 0.008,
+    damping: 0.94,
     maxDPR: 1.75,
     planeWidth: 4.8,
     planeHeight: 5.6
@@ -153,12 +153,14 @@
       });
     }
 
-    // 6. Variáveis de Estado e Interação
+    // 6. Variáveis de Estado e Interação Touch/Mouse
     let scrollPosition = 0;
     let velocity = CONFIG.baseSpeed;
     let isDragging = false;
+    let isTouchMove = false;
+    let startPointerX = 0;
+    let startPointerY = 0;
     let lastPointerX = 0;
-    let lastPointerY = 0;
     let isTimelineScrubbing = false;
     let mouseX = 0;
     let mouseY = 0;
@@ -168,47 +170,69 @@
     let clock = new THREE.Clock();
 
     // ------------------------------------------------------------------------
-    // Controles de Arraste no Canvas Principal
+    // Controles de Arraste com Proteção Total para Scroll Vertical Mobile
     // ------------------------------------------------------------------------
     container.addEventListener('pointerdown', (e) => {
       if (e.target.closest('.gallery-timeline-container')) return;
       isDragging = true;
+      isTouchMove = false;
+      startPointerX = e.clientX;
+      startPointerY = e.clientY;
       lastPointerX = e.clientX;
-      lastPointerY = e.clientY;
       container.style.cursor = 'grabbing';
     });
 
     window.addEventListener('pointerup', () => {
-      if (isDragging) {
-        isDragging = false;
-        container.style.cursor = 'grab';
-      }
+      isDragging = false;
+      isTouchMove = false;
+      container.style.cursor = 'grab';
       if (isTimelineScrubbing) {
         isTimelineScrubbing = false;
       }
     });
 
+    window.addEventListener('pointercancel', () => {
+      isDragging = false;
+      isTouchMove = false;
+      container.style.cursor = 'grab';
+    });
+
     window.addEventListener('pointermove', (e) => {
       if (isDragging) {
-        const deltaX = e.clientX - lastPointerX;
-        const deltaY = e.clientY - lastPointerY;
-        lastPointerX = e.clientX;
-        lastPointerY = e.clientY;
-        // Responde ao arrasto horizontal e vertical
-        velocity += (deltaX * 0.6 + deltaY) * CONFIG.dragSensitivity;
+        const totalDeltaX = e.clientX - startPointerX;
+        const totalDeltaY = e.clientY - startPointerY;
+
+        // Se o usuário estiver deslizando o dedo na vertical para rolar a página no mobile,
+        // NÃO interfere na velocidade do 3D nem causa travamento
+        if (!isTouchMove) {
+          if (Math.abs(totalDeltaY) > Math.abs(totalDeltaX) && Math.abs(totalDeltaY) > 6) {
+            isDragging = false;
+            return;
+          } else if (Math.abs(totalDeltaX) > 6) {
+            isTouchMove = true;
+          }
+        }
+
+        if (isTouchMove || e.pointerType === 'mouse') {
+          const deltaX = e.clientX - lastPointerX;
+          lastPointerX = e.clientX;
+          velocity += deltaX * CONFIG.dragSensitivity;
+        }
       }
 
-      // Parallax de Câmera com Mouse
-      const rect = container.getBoundingClientRect();
-      if (e.clientX >= rect.left && e.clientX <= rect.right &&
-          e.clientY >= rect.top && e.clientY <= rect.bottom) {
-        mouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-        mouseY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
-        targetRotY = mouseX * 0.12;
-        targetRotX = mouseY * 0.08;
-      } else {
-        targetRotX = 0;
-        targetRotY = 0;
+      // Parallax de Câmera com Mouse (apenas desktop)
+      if (e.pointerType === 'mouse') {
+        const rect = container.getBoundingClientRect();
+        if (e.clientX >= rect.left && e.clientX <= rect.right &&
+            e.clientY >= rect.top && e.clientY <= rect.bottom) {
+          mouseX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+          mouseY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+          targetRotY = mouseX * 0.10;
+          targetRotX = mouseY * 0.06;
+        } else {
+          targetRotX = 0;
+          targetRotY = 0;
+        }
       }
     });
 
@@ -220,7 +244,6 @@
       const rect = timelineTrack.getBoundingClientRect();
       const progress = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
       
-      // Converte o progresso da barra em posição Z de scroll
       const targetScroll = progress * CONFIG.depthRange;
       const currentMod = ((scrollPosition % CONFIG.depthRange) + CONFIG.depthRange) % CONFIG.depthRange;
       const diff = targetScroll - currentMod;
@@ -242,7 +265,7 @@
       });
     }
 
-    // Clique nos Marcadores de Momentos da Timeline
+    // Marcadores de Momentos da Timeline
     timelineLabels.forEach(label => {
       label.addEventListener('click', () => {
         const step = parseFloat(label.dataset.step || '0');
@@ -258,21 +281,24 @@
       if (timelineHandle) timelineHandle.style.left = `${pct}%`;
     }
 
-    // 7. Loop de Renderização a 60 FPS
+    // 7. Loop de Renderização a 60/120 FPS Normalizado por Delta Time
     let animationFrameId = null;
 
     function render() {
       if (!isIntersecting) return;
 
+      const delta = clock.getDelta();
+      // Normalização de delta para 60 FPS (evita saltos ou engasgos de frame)
+      const timeScale = Math.min(delta, 0.1) * 60;
       const elapsedTime = clock.getElapsedTime();
 
-      // Aplica amortecimento e auto-play
-      velocity *= CONFIG.damping;
+      // Aplica amortecimento e auto-play com velocidade constante
+      velocity *= Math.pow(CONFIG.damping, timeScale);
       if (Math.abs(velocity) < CONFIG.baseSpeed && !isDragging && !isTimelineScrubbing) {
         velocity = velocity >= 0 ? CONFIG.baseSpeed : -CONFIG.baseSpeed;
       }
 
-      scrollPosition += velocity;
+      scrollPosition += velocity * timeScale;
 
       // Atualiza a Timeline Scrubber automaticamente
       if (!isTimelineScrubbing) {
@@ -281,8 +307,8 @@
       }
 
       // Rotação suave da câmera
-      camera.rotation.y += (targetRotY - camera.rotation.y) * 0.05;
-      camera.rotation.x += (targetRotX - camera.rotation.x) * 0.05;
+      camera.rotation.y += (targetRotY - camera.rotation.y) * 0.05 * timeScale;
+      camera.rotation.x += (targetRotX - camera.rotation.x) * 0.05 * timeScale;
 
       // Posicionamento e Shaders dos Planos 3D
       planes.forEach((item, i) => {
@@ -309,7 +335,7 @@
       animationFrameId = requestAnimationFrame(render);
     }
 
-    // 8. IntersectionObserver (Pausa 100% de GPU fora da tela)
+    // 8. IntersectionObserver com Margem Generosa (Elimina Micro-Pausas durante o Scroll)
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         isIntersecting = entry.isIntersecting;
@@ -321,11 +347,11 @@
           cancelAnimationFrame(animationFrameId);
         }
       });
-    }, { threshold: 0.08 });
+    }, { rootMargin: '300px 0px 300px 0px', threshold: 0 });
 
     observer.observe(container);
 
-    // 9. Resize
+    // 9. Resize Listener
     function onResize() {
       if (!container || !renderer || !camera) return;
       const width = container.clientWidth;
