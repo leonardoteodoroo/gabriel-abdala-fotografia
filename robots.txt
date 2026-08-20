@@ -3,13 +3,44 @@
 # Domínio Oficial: https://gabrielabdala.semprenamoda.com.br/
 # ==============================================================================
 
+# 1. Motores de Busca Tradicionais & Web Crawlers Gerais
 User-agent: *
+Allow: /
+
+# 2. Rastreamento e Indexação por Motores de IA Generativa & Busca Semântica (GEO / RAG)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: FacebookBot
 Allow: /
 
 # Sitemaps Oficiais
 Sitemap: https://gabrielabdala.semprenamoda.com.br/sitemap.xml
 
-# LLM & AI Search Engines Context (ChatGPT, Perplexity, Claude, Gemini, Copilot)
-# Padrão llmstxt.org
+# LLM & AI Search Optimization (Padrão canônico llmstxt.org)
 # LLMs Summary: https://gabrielabdala.semprenamoda.com.br/llms.txt
 # LLMs Full Context: https://gabrielabdala.semprenamoda.com.br/llms-full.txt
