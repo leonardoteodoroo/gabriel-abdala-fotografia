@@ -873,42 +873,146 @@
         }, 7000);
       }
 
-      // 4. Animação Morfa Contínua: Hero CTA -> Encurtamento progressivo -> Bolinha Sticky WhatsApp
-      const heroCtaBtn = document.getElementById("heroCtaBtn");
-      const stickyWhatsAppBtn = document.getElementById("stickyWhatsAppBtn");
+      // 4. O próprio CTA da Hero desce, encurta e vira o WhatsApp fixo
+      const heroCtaSlot = document.getElementById('heroCtaSlot');
+      const heroCtaBtn = document.getElementById('heroCtaBtn');
 
-      let isTicking = false;
-      function updateStickyButton() {
-        if (!heroCtaBtn || !stickyWhatsAppBtn) return;
-        const scrollY = window.scrollY || window.pageYOffset;
-        const rect = heroCtaBtn.getBoundingClientRect();
-        
-        // 1. Quando o botão da Hero começa a sair da tela, o sticky surge como pílula
-        const shouldBeVisible = rect.bottom < 140 || scrollY > 100;
-        // 2. Conforme o scroll avança, a pílula vai encurtando suavemente até virar bolinha circular
-        const shouldBeCircle = rect.bottom < -30 || scrollY > 240;
+      if (heroCtaSlot && heroCtaBtn) {
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
+        const lerp = (start, end, progress) => start + (end - start) * progress;
 
-        if (shouldBeVisible) {
-          stickyWhatsAppBtn.classList.add("active");
-          if (shouldBeCircle) {
-            stickyWhatsAppBtn.classList.add("morphed-circle");
-          } else {
-            stickyWhatsAppBtn.classList.remove("morphed-circle");
+        let morphMetrics = null;
+        let morphFrame = null;
+
+        function preserveFocusWhile(callback) {
+          const hadFocus = document.activeElement === heroCtaBtn;
+          callback();
+          if (hadFocus) heroCtaBtn.focus({ preventScroll: true });
+        }
+
+        function returnCtaToHero() {
+          if (heroCtaBtn.parentElement === heroCtaSlot && !heroCtaBtn.classList.contains('is-morphing')) return;
+
+          preserveFocusWhile(() => {
+            heroCtaBtn.classList.remove('is-docked', 'is-morphing');
+            heroCtaSlot.appendChild(heroCtaBtn);
+          });
+        }
+
+        function moveCtaToViewport() {
+          if (heroCtaBtn.parentElement === document.body) return;
+          preserveFocusWhile(() => document.body.appendChild(heroCtaBtn));
+        }
+
+        function measureMorph() {
+          preserveFocusWhile(() => {
+            heroCtaBtn.classList.remove('is-docked', 'is-morphing');
+            heroCtaSlot.classList.remove('is-reserved');
+            heroCtaSlot.style.removeProperty('--hero-cta-slot-width');
+            heroCtaSlot.style.removeProperty('--hero-cta-slot-height');
+            heroCtaSlot.appendChild(heroCtaBtn);
+          });
+
+          const sourceRect = heroCtaBtn.getBoundingClientRect();
+          const scrollY = window.scrollY || window.pageYOffset;
+          const sourceDocumentTop = sourceRect.top + scrollY;
+          const startScroll = Math.max(0, sourceDocumentTop - window.innerHeight * 0.62);
+          const travel = clamp(window.innerHeight * 0.48, 300, 440);
+          const targetSize = window.innerWidth <= 768 ? 64 : 60;
+
+          heroCtaSlot.style.setProperty('--hero-cta-slot-width', `${sourceRect.width}px`);
+          heroCtaSlot.style.setProperty('--hero-cta-slot-height', `${sourceRect.height}px`);
+          heroCtaSlot.classList.add('is-reserved');
+
+          moveCtaToViewport();
+          heroCtaBtn.classList.add('is-morphing');
+          heroCtaBtn.style.setProperty('--morph-width', `${targetSize}px`);
+          heroCtaBtn.style.setProperty('--morph-height', `${targetSize}px`);
+          heroCtaBtn.style.setProperty('--morph-x', '0px');
+          heroCtaBtn.style.setProperty('--morph-y', '0px');
+          const targetRect = heroCtaBtn.getBoundingClientRect();
+
+          return {
+            sourceLeft: sourceRect.left,
+            sourceTop: sourceDocumentTop - startScroll,
+            sourceWidth: sourceRect.width,
+            sourceHeight: sourceRect.height,
+            targetLeft: targetRect.left,
+            targetTop: targetRect.top,
+            targetRight: targetRect.right,
+            targetBottom: targetRect.bottom,
+            targetSize,
+            startScroll,
+            travel
+          };
+        }
+
+        function applyMorph(progress) {
+          const easedProgress = progress * progress * (3 - 2 * progress);
+          const width = lerp(morphMetrics.sourceWidth, morphMetrics.targetSize, easedProgress);
+          const height = lerp(morphMetrics.sourceHeight, morphMetrics.targetSize, easedProgress);
+          const desiredLeft = lerp(morphMetrics.sourceLeft, morphMetrics.targetLeft, easedProgress);
+          const desiredTop = lerp(morphMetrics.sourceTop, morphMetrics.targetTop, easedProgress);
+          const anchoredLeft = morphMetrics.targetRight - width;
+          const anchoredTop = morphMetrics.targetBottom - height;
+          const textOpacity = 1 - clamp((progress - 0.12) / 0.52);
+          const iconOpacity = clamp((progress - 0.38) / 0.4);
+
+          moveCtaToViewport();
+          heroCtaBtn.classList.add('is-morphing');
+          heroCtaBtn.classList.toggle('is-docked', progress >= 0.995);
+          heroCtaBtn.style.setProperty('--morph-width', `${width.toFixed(2)}px`);
+          heroCtaBtn.style.setProperty('--morph-height', `${height.toFixed(2)}px`);
+          heroCtaBtn.style.setProperty('--morph-x', `${(desiredLeft - anchoredLeft).toFixed(2)}px`);
+          heroCtaBtn.style.setProperty('--morph-y', `${(desiredTop - anchoredTop).toFixed(2)}px`);
+          heroCtaBtn.style.setProperty('--morph-text-opacity', textOpacity.toFixed(3));
+          heroCtaBtn.style.setProperty('--morph-icon-opacity', iconOpacity.toFixed(3));
+          heroCtaBtn.style.setProperty('--morph-icon-scale', lerp(0.72, 1, iconOpacity).toFixed(3));
+        }
+
+        function updateMorph() {
+          morphFrame = null;
+          if (!morphMetrics) morphMetrics = measureMorph();
+
+          if (reducedMotion.matches) {
+            const sourceHasLeftViewport = heroCtaSlot.getBoundingClientRect().bottom <= 0;
+            if (sourceHasLeftViewport) applyMorph(1);
+            else returnCtaToHero();
+            return;
           }
-        } else {
-          stickyWhatsAppBtn.classList.remove("active");
-          stickyWhatsAppBtn.classList.remove("morphed-circle");
-        }
-        isTicking = false;
-      }
 
-      window.addEventListener("scroll", () => {
-        if (!isTicking) {
-          window.requestAnimationFrame(updateStickyButton);
-          isTicking = true;
+          const scrollY = window.scrollY || window.pageYOffset;
+          const progress = clamp((scrollY - morphMetrics.startScroll) / morphMetrics.travel);
+
+          if (progress <= 0) returnCtaToHero();
+          else applyMorph(progress);
         }
-      }, { passive: true });
-      updateStickyButton();
+
+        function scheduleMorphUpdate() {
+          if (morphFrame !== null) return;
+          morphFrame = window.requestAnimationFrame(updateMorph);
+        }
+
+        function invalidateMorphMetrics() {
+          morphMetrics = null;
+          scheduleMorphUpdate();
+        }
+
+        window.addEventListener('scroll', scheduleMorphUpdate, { passive: true });
+        window.addEventListener('resize', invalidateMorphMetrics, { passive: true });
+        window.addEventListener('orientationchange', invalidateMorphMetrics, { passive: true });
+        window.addEventListener('pageshow', invalidateMorphMetrics);
+        window.visualViewport?.addEventListener('resize', invalidateMorphMetrics, { passive: true });
+
+        if (typeof reducedMotion.addEventListener === 'function') {
+          reducedMotion.addEventListener('change', invalidateMorphMetrics);
+        } else {
+          reducedMotion.addListener(invalidateMorphMetrics);
+        }
+
+        invalidateMorphMetrics();
+      }
 
       // 5. Lightbox Modal com Zoom e X
       const modal = document.getElementById('lightboxModal');

@@ -1454,7 +1454,6 @@ h2 {
   height: 30px;
   opacity: var(--morph-icon-opacity, 1);
   transform: translate(-50%, -50%) scale(var(--morph-icon-scale, 1));
-  transition: opacity 0.14s linear, transform 0.18s ease-out;
 }
 
 .hero-whatsapp-cta.is-docked {
@@ -1494,6 +1493,19 @@ h2 {
   .hero-whatsapp-cta.is-morphing .hero-whatsapp-icon {
     width: 34px;
     height: 34px;
+  }
+}
+
+@media (max-width: 350px) {
+  .hero-whatsapp-cta:not(.is-morphing) {
+    max-width: calc(100vw - 3rem);
+    padding-inline: 1.1rem;
+  }
+
+  .hero-whatsapp-cta:not(.is-morphing) .hero-whatsapp-text {
+    white-space: normal;
+    text-align: center;
+    line-height: 1.35;
   }
 }
 
