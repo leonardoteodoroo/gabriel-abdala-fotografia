@@ -224,23 +224,38 @@ Atribuição de propósito e contexto aos tokens primitivos.
     *   Caixa de Conteúdo: Animação de entrada `scale(0.85)` para `scale(1)` com área de preview em alta resolução e painel inferior de descrição.
 
 ### 7. Botão WhatsApp Flutuante Discreto (`c-whatsapp-floating`)
-*   **Dimensões:** `52px × 52px` (circular perfeito).
+*   **Dimensões:** `52px × 52px` (circular perfeito) com transição morfa de scroll.
 *   **Posição:** `bottom: 1.75rem`, `right: 1.75rem`.
-*   **Tooltip:** Pílula informativa que surge suavemente apenas no hover (`desktop`), sem bloquear a visão do mobile.
+*   **Tooltip:** Pílula informativa que surge suavemente apenas no scroll após o CTA da Hero sair de tela.
+
+### 8. Palco 3D Infinite Gallery (`c-infinite-3d-stage`)
+*   **Comportamento:** Canvas WebGL Three.js Full-Width (`100vw`, `75vh`) sem sequestro de scroll da página.
+*   **Física & Shaders:** Shaders de ondulação de tecido (*cloth wave*), curvatura suave em Z e rotação angular reativa ao movimento.
+*   **Timeline Scrubber:** Barra interativa com arraste bidirecional, indicador de progresso e marcadores de tempo clicáveis (*Making Of*, *Cerimônia*, *Golden Hour*, *Celebração*).
+*   **Performance:** `IntersectionObserver` com `rootMargin: 300px` desligando 100% do loop de renderização fora do viewport.
+
+### 9. Apresentação Tátil do Álbum Fine Art (`c-album-fine-art`)
+*   **Comportamento:** Grid sensorial combinando foto principal do álbum aberto com inset flutuante de detalhe de textura de linho natural e baixo-relevo.
+*   **Componentes:**
+    *   `album-hero-grid`: Proporção 1.15fr / 0.85fr com alinhamento vertical centralizado.
+    *   `album-specs-list`: Cards com ícones e descrições dos atributos nobres (Linho Puro, Papel Algodão 100%, Abertura 180° Layflat).
+    *   `album-detail-inset`: Card sobreposto com elevação suave e borda da cor do canvas.
 
 ---
 
 ## 5. Diretrizes de Engenharia & Performance para Produção
 
 1. **Formato das Imagens de Produção:**
-   * Todas as fotos devem ser convertidas para `.webp` ou `.avif` com qualidade `82% - 85%`.
+   * Todas as fotos em formato `.webp` com compressão e fidelidade fotográfica.
    * Resoluções padrão:
      * Fullscreen Hero: `1920 × 1080 px` (desktop) / `1080 × 1920 px` (mobile).
      * Retratos Verticais 4:5: `1080 × 1350 px`.
+     * Panorâmicas 16:9: `1920 × 1080 px`.
      * Detalhes Quadrados 1:1: `800 × 800 px`.
-2. **Priorização de Carregamento:**
-   * A imagem de capa da Hero deve conter `fetchpriority="high"` e `loading="eager"`.
-   * Todas as fotos da galeria, serviços e rodapé devem conter `loading="lazy"` e `decoding="async"`.
+2. **Priorização de Carregamento & Core Web Vitals:**
+   * A imagem de capa da Hero possui `fetchpriority="high"` e preload no `<head>`.
+   * Todas as fotos secundárias possuem `loading="lazy"` e `decoding="async"`.
 3. **Acessibilidade & Semântica:**
-   * Toda imagem deve conter `alt` descritivo com contexto emocional (ex: `alt="Noivo emocionado enxugando lágrima durante a cerimônia de casamento"`).
-   * Links e botões de ação para WhatsApp devem conter atributos `target="_blank"`, `rel="noopener noreferrer"` e rótulos acessíveis `aria-label`.
+   * Toda imagem possui `alt` descritivo com contexto emocional e semântico.
+   * Links e botões de ação para WhatsApp possuem atributos `target="_blank"`, `rel="noopener noreferrer"` e rótulos acessíveis `aria-label`.
+   * Estrutura Schema.org JSON-LD completa com entidades e FAQ.
