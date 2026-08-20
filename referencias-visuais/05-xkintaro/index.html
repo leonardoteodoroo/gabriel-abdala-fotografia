@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 2. Reveal all hidden elements smoothly
-    const hiddenElements = document.querySelectorAll('.will-change-\[opacity\,filter\,transform\]');
+    const hiddenElements = document.querySelectorAll('[class*="will-change"]');
     hiddenElements.forEach((el, index) => {
         el.style.opacity = '1';
         el.style.filter = 'blur(0px)';
