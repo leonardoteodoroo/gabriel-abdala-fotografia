@@ -2,3 +2,8 @@
 preview_*.png
 *.tmp
 .DS_Store
+
+# Node modules & build artifacts do preview-21st
+preview-21st/node_modules/
+preview-21st/dist/
+preview-21st/.vite/
